@@ -27,40 +27,41 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section className="relative py-20 px-4 flex flex-col items-center bg-transparent">
-      <h2 className="text-2xl sm:text-4xl font-bold text-white mb-8 text-center drop-shadow-lg">
+    <section className="relative py-20 px-4 flex flex-col items-center font-[Inter,sans-serif]">
+      <h2 className="text-2xl sm:text-4xl font-bold text-[#0f172a] mb-8 text-center drop-shadow-lg">
         Mit kapsz a ChatBuddy-val már az első hónapban?
       </h2>
-      <ul className="mb-12 flex flex-col gap-3 max-w-xl w-full text-slate-200 text-lg">
+      <ul className="mb-12 flex flex-col gap-3 max-w-xl w-full text-[#0f172a] text-lg">
         {features.map((f, i) => (
           <li key={i} className="flex items-center gap-3">
-            <span className="text-sky-300 text-xl">✔️</span>
+            <span className="text-[#3b82f6] text-xl">✔️</span>
             {f}
           </li>
         ))}
       </ul>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl w-full mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12 max-w-5xl w-full mb-8">
         {plans.map((plan, i) => (
           <div
             key={i}
-            className={`flex flex-col items-center p-8 rounded-2xl border shadow-xl backdrop-blur-lg min-h-[220px] transition-transform hover:scale-105 ${
+            className={`flex flex-col items-center p-6 md:p-8 rounded-[0.75rem] border shadow-lg min-h-[220px] transition-transform hover:scale-105 font-[Inter,sans-serif] ${
               plan.highlight
-                ? "bg-gradient-to-br from-sky-700/60 to-blue-900/40 border-sky-400/40"
-                : "bg-white/10 dark:bg-slate-900/40 border-white/10"
+                ? "border-[#3b82f6]/40"
+                : "border-[#e2e8f0]"
             }`}
+            style={{boxShadow:'0 2px 8px rgba(0,0,0,0.06)'}}
           >
-            <div className="text-xl font-bold text-sky-200 mb-2">{plan.name}</div>
-            <div className="text-3xl font-extrabold text-white mb-2">{plan.price}</div>
-            <div className="text-slate-300 mb-2">{plan.limit}</div>
+            <div className="text-xl font-bold text-[#3b82f6] mb-2">{plan.name}</div>
+            <div className="text-3xl font-extrabold text-[#0f172a] mb-2">{plan.price}</div>
+            <div className="text-[#64748b] mb-2">{plan.limit}</div>
             {plan.highlight && (
-              <div className="mt-2 px-3 py-1 rounded-full bg-sky-400/20 text-sky-200 text-xs font-semibold">
+              <div className="mt-2 px-3 py-1 rounded-full text-[#3b82f6] text-xs font-semibold border border-[#3b82f6]/40">
                 Legnépszerűbb
               </div>
             )}
           </div>
         ))}
       </div>
-      <div className="mt-6 px-6 py-4 rounded-2xl bg-gradient-to-r from-sky-700/60 to-blue-900/40 border border-sky-400/40 shadow-xl text-center text-lg text-white font-semibold max-w-2xl w-full">
+      <div className="mt-6 px-6 py-4 md:px-8 md:py-6 rounded-[0.75rem] border border-[#3b82f6]/20 shadow-lg text-center text-lg text-[#0f172a] font-semibold max-w-2xl w-full" style={{boxShadow:'0 2px 8px rgba(0,0,0,0.06)'}}>
         Foglalj bemutatót most, és az első hónapban ingyenesen kipróbálhatod a Pro csomagot!
       </div>
     </section>

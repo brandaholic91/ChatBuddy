@@ -1,0 +1,123 @@
+{
+    "designSystem": {
+      "theme": {
+        "mode": "light",
+        "primaryColor": "#3b82f6",
+        "secondaryColor": "#facc15",
+        "backgroundColor": "#ffffff",
+        "surfaceColor": "#f8fafc",
+        "textPrimary": "#0f172a",
+        "textSecondary": "#64748b",
+        "borderColor": "#e2e8f0",
+        "shadow": "0 2px 8px rgba(0,0,0,0.06)"
+      },
+      "typography": {
+        "fontFamily": "Inter, sans-serif",
+        "fontSizes": {
+          "title": "1.25rem",
+          "subtitle": "1rem",
+          "body": "0.875rem",
+          "caption": "0.75rem"
+        },
+        "fontWeights": {
+          "regular": 400,
+          "medium": 500,
+          "bold": 700
+        },
+        "lineHeights": {
+          "title": "1.6",
+          "body": "1.5"
+        }
+      },
+      "layout": {
+        "cardPadding": "1rem",
+        "cardBorderRadius": "0.75rem",
+        "spacing": {
+          "xs": "0.25rem",
+          "sm": "0.5rem",
+          "md": "1rem",
+          "lg": "1.5rem"
+        }
+      },
+      "components": {
+        "profileCard": {
+          "structure": [
+            "avatar",
+            "name",
+            "roleOrTag",
+            "statusBadge",
+            "description",
+            "footerActions"
+          ],
+          "avatar": {
+            "shape": "circle",
+            "size": "64px",
+            "border": "1px solid #e2e8f0"
+          },
+          "name": {
+            "fontSize": "1.125rem",
+            "fontWeight": "bold",
+            "color": "#0f172a"
+          },
+          "roleOrTag": {
+            "fontSize": "0.875rem",
+            "color": "#64748b",
+            "badgeBackground": "#f1f5f9",
+            "badgePadding": "0.25rem 0.5rem",
+            "badgeRadius": "0.375rem"
+          },
+          "statusBadge": {
+            "type": "pill",
+            "variants": {
+              "active": {
+                "background": "#d1fae5",
+                "textColor": "#065f46"
+              },
+              "inactive": {
+                "background": "#fee2e2",
+                "textColor": "#991b1b"
+              }
+            }
+          },
+          "description": {
+            "fontSize": "0.875rem",
+            "color": "#475569",
+            "maxLines": 3
+          },
+          "footerActions": {
+            "buttons": [
+              {
+                "label": "View",
+                "style": "ghost",
+                "color": "#3b82f6"
+              },
+              {
+                "label": "Edit",
+                "style": "solid",
+                "color": "#3b82f6"
+              }
+            ]
+          }
+        }
+      },
+      "responsive": {
+        "breakpoints": {
+          "sm": "640px",
+          "md": "768px",
+          "lg": "1024px"
+        },
+        "behavior": {
+          "profileCard": {
+            "sm": {
+              "layout": "vertical"
+            },
+            "md": {
+              "layout": "horizontal",
+              "avatarSize": "80px"
+            }
+          }
+        }
+      }
+    }
+  }
+  

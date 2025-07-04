@@ -8,14 +8,18 @@ import FAQ from "./components/FAQ";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center w-full min-h-screen bg-transparent">
+    <>
       <Hero />
-      <Problem />
-      <Solution />
-      <HowItWorks />
-      <Testimonials />
-      <Pricing />
-      <FAQ />
-    </main>
+      <main className="flex flex-col items-center w-full min-h-screen bg-transparent px-4 md:px-12 xl:px-32 2xl:px-64 py-12 md:py-20">
+        <div className="w-full max-w-7xl flex flex-col gap-24 md:gap-32 xl:gap-40">
+          <Problem />
+          <Solution />
+          <HowItWorks />
+          <Testimonials />
+          <Pricing />
+          <FAQ />
+        </div>
+      </main>
+    </>
   );
 }

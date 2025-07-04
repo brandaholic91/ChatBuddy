@@ -1,0 +1,87 @@
+{
+    "designProfile": {
+      "style": {
+        "theme": "Light with vibrant gradient accent",
+        "visualTone": "Modern, friendly, tech-forward",
+        "colorScheme": {
+          "background": "#ffffff",
+          "primaryAccentGradient": ["#f97316", "#ec4899", "#8b5cf6"],
+          "textPrimary": "#000000",
+          "textSecondary": "#6b7280",
+          "buttonBackground": "#000000",
+          "buttonText": "#ffffff"
+        },
+        "typography": {
+          "fontFamily": "Sans-serif (likely Inter, Helvetica or similar)",
+          "headline": {
+            "fontSize": "clamp(2rem, 5vw, 3.5rem)",
+            "fontWeight": "700",
+            "lineHeight": "1.2"
+          },
+          "subheadline": {
+            "fontSize": "1.25rem",
+            "fontWeight": "400",
+            "color": "#6b7280"
+          },
+          "button": {
+            "fontWeight": "600",
+            "textTransform": "none"
+          }
+        },
+        "effects": {
+          "buttonHover": "Gradient underline or slight scale",
+          "cardShadow": "Subtle soft shadow",
+          "gradientGlow": "Background panel has soft, grainy gradient glow"
+        }
+      },
+      "layout": {
+        "gridSystem": "2-column flex layout",
+        "heroSection": {
+          "alignment": "left text, right visual",
+          "padding": "clamp(2rem, 10vw, 6rem)",
+          "components": [
+            "Headline",
+            "Subheadline",
+            "CTA Button",
+            "No credit card disclaimer",
+            "Client logos strip"
+          ]
+        },
+        "ctaButton": {
+          "text": "Build your agent",
+          "style": "rounded, high contrast, slight gradient bottom border"
+        },
+        "logoBar": {
+          "placement": "below hero section",
+          "alignment": "centered",
+          "logos": "monochrome, evenly spaced"
+        },
+        "heroVisual": {
+          "type": "UI mockup card",
+          "background": "rounded rectangle with gradient fill",
+          "elements": [
+            {
+              "component": "Action card",
+              "elements": ["Icon", "Action label", "Toggle", "Mouse cursor icon"]
+            }
+          ]
+        }
+      },
+      "interaction": {
+        "cta": "Primary button (Build your agent) is highly visible and leads to action",
+        "microcopy": "Reassurance tag below button (No credit card required)"
+      },
+      "accessibility": {
+        "contrast": "High between text and background",
+        "fontSize": "Accessible minimum ~16px body",
+        "keyboardNav": "Likely keyboard navigable (based on design simplicity)"
+      },
+      "bestPractices": {
+        "firstViewportFocus": "Clear headline and CTA",
+        "trustSignals": "Client logos and count (9000+ businesses)",
+        "emotionalTrigger": "‘Magical customer experience’ phrasing",
+        "structureHierarchy": "H1 > Paragraph > Button > Logos"
+      }
+    }
+  }
+  
