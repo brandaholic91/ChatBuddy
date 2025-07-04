@@ -15,21 +15,21 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="relative py-20 px-4 flex flex-col items-center font-[Inter,sans-serif]">
-      <h2 className="text-2xl sm:text-4xl font-bold text-[#0f172a] mb-12 text-center drop-shadow-lg">
-        Ügyfeleink mondták:
+    <section className="relative py-section-y px-section-x flex flex-col items-center bg-background">
+      <h2 className="flex items-center gap-3 text-heading font-bold mb-12 text-center justify-center">
+        <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom">💬</span>
+        <span className="bg-gradient-to-r from-accent to-primaryTo bg-clip-text text-transparent">Ügyfeleink mondták</span>
       </h2>
-      <div className="flex flex-col md:flex-row gap-x-8 gap-y-12 max-w-4xl w-full justify-center items-stretch">
+      <div className="flex flex-col md:flex-row gap-8 max-w-4xl w-full justify-center items-stretch">
         {testimonials.map((t, i) => (
           <div
             key={i}
-            className="flex-1 flex flex-col items-center p-6 md:p-8 rounded-[0.75rem] border border-[#e2e8f0] shadow-lg min-h-[180px] relative"
-            style={{boxShadow:'0 2px 8px rgba(0,0,0,0.06)'}}
+            className="flex-1 flex flex-col items-center bg-foreground p-8 rounded-card shadow-card min-h-[220px] relative transition-transform hover:-translate-y-1 hover:shadow-2xl"
           >
-            <span className="text-5xl text-[#3b82f6] mb-4 select-none">"</span>
-            <p className="text-lg text-[#0f172a] font-medium text-center mb-6">{t.quote}</p>
-            <div className="text-[#3b82f6] font-semibold text-base mb-1">{t.name}</div>
-            <div className="text-[#64748b] text-sm">{t.title}</div>
+            <span className="text-5xl text-primaryFrom mb-4 select-none">"</span>
+            <p className="text-lg md:text-xl text-bodyText font-medium text-center mb-6 leading-relaxed">{t.quote}</p>
+            <div className="text-accent font-semibold text-base mb-1">{t.name}</div>
+            <div className="text-subtleText text-sm">{t.title}</div>
           </div>
         ))}
       </div>

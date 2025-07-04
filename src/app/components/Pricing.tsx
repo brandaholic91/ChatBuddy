@@ -6,63 +6,72 @@ const features = [
 ];
 const plans = [
   {
-    name: "Alap csomag",
-    price: "29 900 Ft/hó",
-    limit: "max. 1000 interakció/hó",
+    name: "Start",
+    price: "35 000 Ft",
+    setup: "Egyszeri beállítás: 170 ezer Ft",
+    features: [
+      "Webchat + rendeléskövetés",
+      "GYIK automatikus válaszok",
+      "24/7 AI ügyfélszolgálat",
+      "Alapvető analytics",
+      "Email támogatás",
+    ],
     highlight: false,
   },
   {
-    name: "Pro csomag",
-    price: "59 900 Ft/hó",
-    limit: "max. 5000 interakció/hó",
+    name: "Full",
+    price: "180 000 Ft",
+    setup: "Egyszeri beállítás: 690 ezer Ft",
+    features: [
+      "Minden Pro funkció",
+      "WhatsApp integráció",
+      "Kampány workflow",
+      "CRM kapcsolat",
+      "Dedikált account manager",
+      "SLA garancia",
+    ],
     highlight: true,
-  },
-  {
-    name: "Full csomag",
-    price: "Egyedi ajánlat",
-    limit: "korlátlan interakció",
-    highlight: false,
   },
 ];
 
 export default function Pricing() {
   return (
-    <section className="relative py-20 px-4 flex flex-col items-center font-[Inter,sans-serif]">
-      <h2 className="text-2xl sm:text-4xl font-bold text-[#0f172a] mb-8 text-center drop-shadow-lg">
-        Mit kapsz a ChatBuddy-val már az első hónapban?
+    <section className="relative py-section-y px-section-x flex flex-col items-center bg-background">
+      <h2 className="flex items-center gap-3 text-heading font-bold mb-12 text-center justify-center">
+        <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom">💰</span>
+        <span className="bg-gradient-to-r from-accent to-primaryTo bg-clip-text text-transparent">Mit kapsz, mennyiért?</span>
       </h2>
-      <ul className="mb-12 flex flex-col gap-3 max-w-xl w-full text-[#0f172a] text-lg">
-        {features.map((f, i) => (
-          <li key={i} className="flex items-center gap-3">
-            <span className="text-[#3b82f6] text-xl">✔️</span>
-            {f}
-          </li>
-        ))}
-      </ul>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12 max-w-5xl w-full mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl w-full mb-10">
         {plans.map((plan, i) => (
           <div
             key={i}
-            className={`flex flex-col items-center p-6 md:p-8 rounded-[0.75rem] border shadow-lg min-h-[220px] transition-transform hover:scale-105 font-[Inter,sans-serif] ${
-              plan.highlight
-                ? "border-[#3b82f6]/40"
-                : "border-[#e2e8f0]"
-            }`}
-            style={{boxShadow:'0 2px 8px rgba(0,0,0,0.06)'}}
+            className={`flex flex-col items-center bg-foreground p-10 rounded-card shadow-card min-h-[420px] relative transition-transform hover:-translate-y-1 hover:shadow-2xl ${plan.highlight ? '' : ''}`}
           >
-            <div className="text-xl font-bold text-[#3b82f6] mb-2">{plan.name}</div>
-            <div className="text-3xl font-extrabold text-[#0f172a] mb-2">{plan.price}</div>
-            <div className="text-[#64748b] mb-2">{plan.limit}</div>
-            {plan.highlight && (
-              <div className="mt-2 px-3 py-1 rounded-full text-[#3b82f6] text-xs font-semibold border border-[#3b82f6]/40">
-                Legnépszerűbb
-              </div>
-            )}
+            <div className={`text-xl font-bold mb-2 ${plan.highlight ? 'text-[#7c3aed]' : 'text-primaryFrom'}`}>{plan.name}</div>
+            <div className="text-4xl font-extrabold text-bodyText mb-1">{plan.price}</div>
+            <div className="text-subtleText mb-2">havonta</div>
+            <div className="text-subtleText text-sm mb-4 font-medium">{plan.setup}</div>
+            <ul className="flex flex-col gap-2 w-full mb-6">
+              {plan.features.map((f, idx) => (
+                <li key={idx} className="flex items-center gap-3 text-bodyText text-base">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-green-100 text-green-500 text-lg">✓</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <button className="mt-auto w-full button">
+              Válaszd ezt a csomagot
+            </button>
           </div>
         ))}
       </div>
-      <div className="mt-6 px-6 py-4 md:px-8 md:py-6 rounded-[0.75rem] border border-[#3b82f6]/20 shadow-lg text-center text-lg text-[#0f172a] font-semibold max-w-2xl w-full" style={{boxShadow:'0 2px 8px rgba(0,0,0,0.06)'}}>
-        Foglalj bemutatót most, és az első hónapban ingyenesen kipróbálhatod a Pro csomagot!
+      <div className="flex flex-col gap-4 w-full max-w-2xl mx-auto">
+        <div className="px-6 py-4 rounded-card bg-foreground shadow-card text-center text-base md:text-lg font-medium text-primaryFrom">
+          <span className="font-semibold">Nincs rejtett költség.</span> Nincs szerver. Nincs LLM API szükséglet.
+        </div>
+        <div className="px-6 py-4 rounded-card bg-gradient-to-r from-primaryFrom to-primaryTo shadow-card text-center text-base md:text-lg font-semibold text-white">
+          <span className="font-bold">Foglalj bemutatót – 1 hónap ingyenes Pro próba! 🎁</span>
+        </div>
       </div>
     </section>
   );

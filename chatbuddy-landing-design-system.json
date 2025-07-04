@@ -1,0 +1,146 @@
+{
+    "designSystem": {
+      "meta": {
+        "name": "ChatBuddy Landing UI",
+        "version": "1.0",
+        "description": "Light-themed, conversion-optimized UI system for SaaS landing pages (AI chatbot product)",
+        "styleKeywords": ["modern", "gradient", "glassmorphic", "clean", "e-commerce SaaS"]
+      },
+      "colors": {
+        "background": "#f9fafb",
+        "foreground": "#ffffff",
+        "primaryGradient": {
+          "from": "#a78bfa",
+          "to": "#38bdf8"
+        },
+        "accent": "#6366f1",
+        "subtleText": "#64748b",
+        "bodyText": "#0f172a",
+        "divider": "#e2e8f0",
+        "cardShadow": "rgba(0, 0, 0, 0.04)"
+      },
+      "typography": {
+        "fontFamily": "Inter, sans-serif",
+        "heading": {
+          "fontSize": "clamp(1.5rem, 3vw, 2.5rem)",
+          "fontWeight": 700,
+          "gradientText": true
+        },
+        "subheading": {
+          "fontSize": "1rem",
+          "fontWeight": 400,
+          "color": "#64748b"
+        },
+        "highlight": {
+          "fontSize": "1.125rem",
+          "fontWeight": 500,
+          "color": "#38bdf8"
+        },
+        "text": {
+          "fontSize": "0.95rem",
+          "color": "#475569"
+        },
+        "label": {
+          "fontSize": "0.75rem",
+          "textTransform": "uppercase",
+          "letterSpacing": "0.04em"
+        }
+      },
+      "layout": {
+        "contentMaxWidth": "1200px",
+        "sectionPadding": "4rem 1.5rem",
+        "columnGap": "2rem",
+        "rowGap": "2.5rem"
+      },
+      "components": {
+        "button": {
+          "size": "lg",
+          "textColor": "#ffffff",
+          "gradientBackground": true,
+          "fontWeight": 600,
+          "padding": "0.75rem 1.5rem",
+          "borderRadius": "9999px",
+          "shadow": "0 4px 20px rgba(56, 189, 248, 0.4)"
+        },
+        "badge": {
+          "padding": "0.25rem 0.75rem",
+          "background": "#f1f5f9",
+          "borderRadius": "0.5rem",
+          "textColor": "#3b82f6",
+          "fontSize": "0.75rem"
+        },
+        "card": {
+          "background": "#ffffff",
+          "borderRadius": "1.25rem",
+          "boxShadow": "0 10px 40px rgba(0,0,0,0.06)",
+          "padding": "2rem",
+          "layout": "vertical"
+        },
+        "pricingCard": {
+          "layout": "vertical",
+          "spacing": "1.25rem",
+          "highlightedColor": "#8b5cf6",
+          "featuresStyle": "checklist",
+          "button": {
+            "style": "solid",
+            "background": "#8b5cf6",
+            "hoverBackground": "#7c3aed",
+            "textColor": "#ffffff"
+          }
+        },
+        "faqItem": {
+          "borderRadius": "1rem",
+          "padding": "1.25rem",
+          "background": "#ffffff",
+          "boxShadow": "0 4px 16px rgba(0,0,0,0.03)",
+          "expandable": true,
+          "fontSize": "1rem"
+        },
+        "infoBox": {
+          "icon": "emoji-style",
+          "numbered": true,
+          "shadow": true,
+          "gap": "1rem"
+        },
+        "testimonial": {
+          "quoteFontSize": "1.125rem",
+          "authorFontWeight": 600,
+          "layout": "carousel",
+          "icon": "chat-bubble"
+        }
+      },
+      "icons": {
+        "style": "emoji + soft SVG",
+        "usage": "section headers, badges, process steps"
+      },
+      "responsive": {
+        "breakpoints": {
+          "sm": "640px",
+          "md": "768px",
+          "lg": "1024px",
+          "xl": "1280px"
+        },
+        "rules": {
+          "gridSections": {
+            "default": "1fr",
+            "md": "1fr 1fr"
+          },
+          "buttonStacking": {
+            "sm": "vertical",
+            "md": "horizontal"
+          }
+        }
+      },
+      "animations": {
+        "hover": {
+          "buttons": "translateY(-2px), box-shadow increase",
+          "cards": "slight scale-up"
+        },
+        "scroll": {
+          "fadeIn": true,
+          "staggeredCards": true
+        }
+      }
+    }
+  }
+  
