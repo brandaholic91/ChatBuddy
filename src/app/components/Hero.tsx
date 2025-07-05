@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Aurora from "./Aurora";
+import { motion } from "framer-motion";
 
 const words = ["Elégedettebb", "Boldogabb", "Hűségesebb"];
 
@@ -31,15 +33,19 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-[70vh] w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden p-0 m-0 border-0 bg-background"
-      style={{ position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}
+      className="relative w-full min-h-[32rem] py-12 px-8 bg-background overflow-hidden"
     >
       {/* Tartalom középre igazítva */}
-      <div className="relative z-10 max-w-[1200px] mx-auto w-full flex flex-col lg:flex-row items-center justify-center min-h-[70vh] py-section-y px-section-x gap-16 lg:gap-8">
+      <div className="relative z-10 max-w-[75rem] mx-auto w-full flex flex-col lg:flex-row items-center justify-center min-h-[32rem] py-12 px-8 gap-12 lg:gap-16 pt-24 sm:pt-32 md:pt-40 lg:pt-80">
         {/* Bal oldal: szöveg */}
-        <div className="flex-1 flex flex-col items-start justify-center max-w-2xl px-0 gap-10 w-full">
+        <div className="flex-1 flex flex-col items-start justify-center max-w-[40rem] px-0 gap-8 w-full">
           {/* 3 soros főcím typewriter effekttel */}
-          <h1 className="w-full break-words text-[clamp(2rem,5vw,4rem)] font-bold leading-tight text-bodyText">
+          <motion.h1
+            className="w-full break-words text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-bodyText"
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <span className="inline-block min-h-[1.2em]">
               {displayed}
               {typing ? (
@@ -66,20 +72,35 @@ export default function Hero() {
             vásárlókat
             <br />
             szeretnél?
-          </h1>
+          </motion.h1>
           {/* Alcím */}
-          <p className="w-full text-lg text-subtleText leading-relaxed">
-            Turbózd fel ügyfélszolgálatodat egy AI-kollégával, aki 24/7 válaszol minden vásárlói kérdésre. Csökkenő terhelés, növekvő bevétel, már az első naptól.
-          </p>
+          <motion.p
+            className="w-full text-base sm:text-lg md:text-xl text-subtleText leading-relaxed"
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Turbózd fel ügyfélszolgálatod egy AI-kollégával, aki 24/7 válaszol minden vásárlói kérdésre. Csökkenő terhelés, növekvő bevétel, már az első naptól.
+          </motion.p>
           {/* Gombok */}
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <button className="w-full sm:w-auto button">
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <button className="cta-animated w-full sm:w-auto button text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-6 relative overflow-hidden">
               Ingyenes 20 perces bemutató foglalása →
             </button>
-          </div>
+          </motion.div>
         </div>
         {/* Jobb oldal: chat UI mockup */}
-        <div className="flex-1 flex items-center justify-center w-full mt-8 lg:mt-0">
+        <motion.div
+          className="flex-1 flex items-center justify-center w-full mt-8 lg:mt-0"
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
           <div className="w-full max-w-xs sm:max-w-sm md:w-[320px] aspect-[370/420] rounded-card shadow-card border border-divider bg-foreground p-0 overflow-hidden">
             {/* Fejléc */}
             <div className="flex items-center gap-3 px-4 py-4 bg-background border-b border-divider">
@@ -122,7 +143,7 @@ export default function Hero() {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
