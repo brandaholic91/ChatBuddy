@@ -49,43 +49,94 @@ export default function Problem() {
     opacity: useTransform(scrollYProgress, [start, end], [0, 1]),
   }));
 
+  // --- Typewriter effekt a címhez ---
+  const titleText = "Neked is ismerősek ezek a helyzetek?";
+  const [displayed, setDisplayed] = useState("");
+  const [typing, setTyping] = useState(false);
+  const titleRef = useRef(null);
+  const { scrollYProgress: titleScroll } = useScroll({ target: titleRef, offset: ["start 0.9", "end 0.5"] });
+  useEffect(() => {
+    const unsubscribe = titleScroll.on("change", (v) => {
+      if (v >= 0.1 && !typing && displayed.length === 0) {
+        setTyping(true);
+      }
+    });
+    return () => unsubscribe();
+  }, [typing, displayed.length, titleScroll]);
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (typing) {
+      if (displayed.length < titleText.length) {
+        // gyorsabb easeOutIn
+        const progress = displayed.length / titleText.length;
+        const base = 25; // ms
+        const max = 70; // ms
+        const ease = base + (max - base) * Math.sin(progress * Math.PI); // easeOutIn
+        timeout = setTimeout(() => {
+          setDisplayed(titleText.slice(0, displayed.length + 1));
+        }, ease);
+      } else {
+        setTyping(false);
+      }
+    }
+    return () => clearTimeout(timeout);
+  }, [displayed, typing]);
+  // --- Cím kurzor villogás ---
+  const [showCursor, setShowCursor] = useState(true);
+  useEffect(() => {
+    if (!typing) {
+      const interval = setInterval(() => setShowCursor((v) => !v), 500);
+      return () => clearInterval(interval);
+    } else {
+      setShowCursor(true);
+    }
+  }, [typing]);
+
   return (
     <section ref={sectionRef} className="relative pt-40 pb-16 px-8 flex flex-col items-center bg-background">
-      {/* Cím ikon + gradient szöveg */}
-      <motion.h2
-        style={{
-          y: titleY,
-          opacity: titleOpacity,
-          color: 'black',
-          fontWeight: 600,
-          textAlign: 'center',
-          marginBottom: '2.5rem',
-          fontSize: 'clamp(2rem, 4vw, 2.8rem)',
-          lineHeight: 1.1,
-          letterSpacing: '-0.03em',
-        }}
-        className="text-center mb-10"
+      {/* Cím typewriter + kurzor effekt */}
+      <h2
+        ref={titleRef}
+        className="text-center mb-10 flex items-center gap-3 justify-center"
+        style={{ color: 'black', fontWeight: 600, textAlign: 'center', marginBottom: '2.5rem', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em' }}
       >
-        Neked is ismerősek ezek a helyzetek?
-      </motion.h2>
-      <div className="w-full max-w-5xl mx-auto">
+        {(typing || displayed.length > 0) && (
+          <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom">❓</span>
+        )}
+        <span style={{ position: 'relative', display: 'inline-block', minHeight: '1.2em' }}>
+          {displayed}
+          <span style={{
+            background: 'linear-gradient(90deg, #a78bfa, #38bdf8)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            display: 'inline-block',
+            marginLeft: 2,
+            opacity: showCursor ? 1 : 0,
+            transition: 'opacity 0.2s',
+            filter: typing ? 'blur(2px)' : 'none',
+          }}>
+            |
+          </span>
+        </span>
+      </h2>
+      <div className="w-full max-w-5xl mx-auto mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
           {/* 1. kártya */}
           <motion.div style={{ y: cardTransforms[0].y, opacity: cardTransforms[0].opacity }}>
             <TiltedCard
               imageSrc="/pic1.png"
               altText="Ügyfélszolgálatod túlterhelt a rendelésállapotokról, visszaküldésről, szállításról szóló kérdésekkel?"
-              containerHeight="340px"
+              containerHeight="500px"
               containerWidth="100%"
-              imageHeight="340px"
-              imageWidth="340px"
+              imageHeight="500px"
+              imageWidth="500px"
               scaleOnHover={1.08}
               rotateAmplitude={12}
               showMobileWarning={false}
               showTooltip={false}
               displayOverlayContent={true}
               overlayContent={
-                <div className="backdrop-blur-md bg-white/40 border border-white/30 rounded-xl shadow-lg p-4 text-center text-base md:text-lg text-gray-900 font-medium leading-snug" style={{boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)'}}>
+                <div className="absolute left-4 right-4 bottom-4 mx-auto w-auto max-w-[90%] px-6 py-5 backdrop-blur-md bg-white/40 border border-white/30 rounded-xl shadow-lg text-center text-base md:text-lg text-gray-900 font-medium leading-snug" style={{boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)'}}>
                   Ügyfélszolgálatod túlterhelt a rendelésállapotokról, visszaküldésről, szállításról szóló kérdésekkel?
                 </div>
               }
@@ -96,17 +147,17 @@ export default function Problem() {
             <TiltedCard
               imageSrc="/pic2.png"
               altText="Több csatornán kommunikálsz (Messenger, webchat, WhatsApp) – mégsem látjátok át egyben?"
-              containerHeight="340px"
+              containerHeight="500px"
               containerWidth="100%"
-              imageHeight="340px"
-              imageWidth="340px"
+              imageHeight="500px"
+              imageWidth="500px"
               scaleOnHover={1.08}
               rotateAmplitude={12}
               showMobileWarning={false}
               showTooltip={false}
               displayOverlayContent={true}
               overlayContent={
-                <div className="backdrop-blur-md bg-white/40 border border-white/30 rounded-xl shadow-lg p-4 text-center text-base md:text-lg text-gray-900 font-medium leading-snug" style={{boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)'}}>
+                <div className="absolute left-4 right-4 bottom-4 mx-auto w-auto max-w-[90%] px-6 py-5 backdrop-blur-md bg-white/40 border border-white/30 rounded-xl shadow-lg text-center text-base md:text-lg text-gray-900 font-medium leading-snug" style={{boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)'}}>
                   Több csatornán kommunikálsz (Messenger, webchat, WhatsApp) – mégsem látjátok át egyben?
                 </div>
               }
@@ -117,17 +168,17 @@ export default function Problem() {
             <TiltedCard
               imageSrc="/pic3.png"
               altText="Kimaradnak potenciális vásárlók, mert nincs azonnali válasz?"
-              containerHeight="340px"
+              containerHeight="500px"
               containerWidth="100%"
-              imageHeight="340px"
-              imageWidth="340px"
+              imageHeight="500px"
+              imageWidth="500px"
               scaleOnHover={1.08}
               rotateAmplitude={12}
               showMobileWarning={false}
               showTooltip={false}
               displayOverlayContent={true}
               overlayContent={
-                <div className="backdrop-blur-md bg-white/40 border border-white/30 rounded-xl shadow-lg p-4 text-center text-base md:text-lg text-gray-900 font-medium leading-snug" style={{boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)'}}>
+                <div className="absolute left-4 right-4 bottom-4 mx-auto w-auto max-w-[90%] px-6 py-5 backdrop-blur-md bg-white/40 border border-white/30 rounded-xl shadow-lg text-center text-base md:text-lg text-gray-900 font-medium leading-snug" style={{boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)'}}>
                   Kimaradnak potenciális vásárlók, mert nincs azonnali válasz?
                 </div>
               }
@@ -138,17 +189,17 @@ export default function Problem() {
             <TiltedCard
               imageSrc="/pic4.png"
               altText="Nincs idő follow-up üzenetekre vagy kosárelhagyók visszaszerzésére?"
-              containerHeight="340px"
+              containerHeight="500px"
               containerWidth="100%"
-              imageHeight="340px"
-              imageWidth="340px"
+              imageHeight="500px"
+              imageWidth="500px"
               scaleOnHover={1.08}
               rotateAmplitude={12}
               showMobileWarning={false}
               showTooltip={false}
               displayOverlayContent={true}
               overlayContent={
-                <div className="backdrop-blur-md bg-white/40 border border-white/30 rounded-xl shadow-lg p-4 text-center text-base md:text-lg text-gray-900 font-medium leading-snug" style={{boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)'}}>
+                <div className="absolute left-4 right-4 bottom-4 mx-auto w-auto max-w-[90%] px-6 py-5 backdrop-blur-md bg-white/40 border border-white/30 rounded-xl shadow-lg text-center text-base md:text-lg text-gray-900 font-medium leading-snug" style={{boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)'}}>
                   Nincs idő follow-up üzenetekre vagy kosárelhagyók visszaszerzésére?
                 </div>
               }

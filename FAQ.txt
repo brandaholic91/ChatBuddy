@@ -1,0 +1,41 @@
+Gyakori kérdések
+
+1. Valóban magyarul válaszol a ChatBuddy?Igen, természetes, hibátlan magyarsággal kommunikál, webshopokra optimalizált AI technológiával.
+
+2. Bonyolult integrálni a Shoprenter webshopunkkal?Nem, pár kattintással, programozói tudás nélkül integrálható a Shoprenter vagy WooCommerce áruházadba.
+
+3. Milyen csatornákon tud segíteni a ChatBuddy?Webchat, Messenger, WhatsApp és Instagram DM – mindenhol ott van, ahol a vásárlóid.
+
+4. Tényleg képes rendelési ügyeket intézni?Igen, lekérdezi a rendelés állapotát, kezeli a visszaküldéseket és segít a vásárlóknak az ajánlatkérésben is.
+
+5. Mennyi idő alatt lesz éles a rendszer?Általában 3-4 hét alatt már élesben használhatod, de akár 1 nap alatt is integrálható egy pilot teszthez.
+
+6. Mi történik, ha a chatbot nem tud válaszolni?Ilyenkor automatikusan élő ügyfélszolgálati kollégához irányítja a vásárlót, így nincs negatív élmény.
+
+7. Hogyan garantáljátok a GDPR-megfelelést?Az összes adatot EU-s szervereken tároljuk, szigorú GDPR-kompatibilis biztonsági előírások mellett.
+
+8. Hogyan mérhető a ChatBuddy eredményessége?Beépített analitikánk pontosan megmutatja, mennyi ügyfélinterakció zajlik, és hogyan javulnak a KPI-k.
+
+9. Mi a teendő, ha bővülni szeretnénk több csatornára?Egyszerűen válthatsz magasabb csomagra, vagy kérhetsz egyedi megoldást – könnyen skálázható a szolgáltatás.
+
+10. Van-e egyszeri beállítási díj?Igen, egyszeri setup díj van (170 000–690 000 Ft között), csomagtól függően. Ez tartalmazza az integrációt és testreszabást.
+
+11. Milyen típusú webshopoknak ideális a ChatBuddy?Elsősorban napi 30–500 rendelést kezelő webshopoknak, amelyek több kommunikációs csatornán működnek, és túlterhelt ügyfélszolgálattal rendelkeznek.
+
+12. Hogyan segít a ChatBuddy növelni a bevételt?Proaktív üzenetekkel, személyre szabott ajánlatokkal és azonnali válaszokkal segít kosárelhagyás csökkentésében és az upsellben.
+
+13. Mi történik, ha technikai probléma adódik?Dedikált magyar nyelvű supportot nyújtunk, gyors reagálással, és SLA-garanciával a folyamatos működésre.
+
+14. Kell-e saját szervert üzemeltetnünk a chatbothoz?Nem, mindent mi biztosítunk felhő-alapú infrastruktúrán, neked nem kell semmilyen technikai infrastruktúrával foglalkoznod.
+
+15. Mennyire biztonságos az adatok kezelése?Teljesen biztonságos, titkosított kommunikációt és adatvédelmi auditokat alkalmazunk a legmagasabb GDPR szabvány szerint.
+
+16. Mi a különbség a ti chatbototok és egy FAQ-bot között?A ChatBuddy önálló ügyintézést végez: rendelést ellenőriz, visszaküldést indít, ajánlatokat generál, tehát jóval többet nyújt egy FAQ-botnál.
+
+17. Mennyire kell technikai tudás a chatbot kezeléséhez?Semmilyen programozási tudás nem szükséges, marketingesek vagy ügyfélszolgálatosok könnyedén kezelhetik.
+
+18. Miért érdemes pilot projektet indítani?Így kockázatmentesen, valós adatokkal mérheted meg, hogyan teljesít a chatbot a te webshopod esetében.
+
+19. Mennyire terheli a ChatBuddy a webshopot?Nem okoz semmilyen terhelést, felhő-alapú működése révén nem lassítja a weboldaladat, sőt csökkenti a csapatod terhelését.
+
+20. Hogyan működik a próbaidőszak?Az ingyenes, 20 perces bemutató után igényelhetsz egy hónapos próbaidőszakot a Pro csomagra, így meggyőződhetsz a működéséről.

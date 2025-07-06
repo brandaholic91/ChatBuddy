@@ -33,7 +33,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative w-full min-h-[32rem] py-12 px-8 bg-background overflow-hidden"
+      className="relative w-full min-h-[32rem] py-20 px-8 overflow-hidden"
     >
       {/* Tartalom középre igazítva */}
       <div className="relative z-10 max-w-[75rem] mx-auto w-full flex flex-col lg:flex-row items-center justify-center min-h-[32rem] py-12 px-8 gap-12 lg:gap-16 pt-24 sm:pt-32 md:pt-40 lg:pt-80">

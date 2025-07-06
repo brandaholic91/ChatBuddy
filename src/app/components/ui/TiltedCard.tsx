@@ -109,7 +109,7 @@ export default function TiltedCard({
       )}
 
       <motion.div
-        className="tilted-card-inner"
+        className="tilted-card-inner relative"
         style={{
           width: imageWidth,
           height: imageHeight,
@@ -130,7 +130,7 @@ export default function TiltedCard({
 
         {displayOverlayContent && overlayContent && (
           <motion.div
-            className="tilted-card-overlay"
+            className="tilted-card-overlay absolute left-4 right-4 bottom-4 mx-auto w-auto max-w-[90%] px-4 py-3"
           >
             {overlayContent}
           </motion.div>
