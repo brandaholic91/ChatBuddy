@@ -3,19 +3,22 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const steps = [
   {
-    icon: <svg width="48" height="48" fill="none" viewBox="0 0 48 48"><linearGradient id="linkGradient" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stopColor="#a78bfa"/><stop offset="1" stopColor="#38bdf8"/></linearGradient><path d="M32 16a6 6 0 0 0-6-6h-4a6 6 0 0 0 0 12h4a6 6 0 0 0 6-6Zm-6 10h-4a6 6 0 0 0 0 12h4a6 6 0 0 0 0-12Z" stroke="url(#linkGradient)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/><path d="M20 24h8" stroke="url(#linkGradient)" strokeWidth="3" strokeLinecap="round"/></svg>,
+    emoji: "🔵",
+    number: 1,
     title: "Kapcsolódás",
-    desc: "Webshophoz való csatlakozás 1 nap alatt (plugin vagy API)",
+    desc: "Webshopodhoz illesztjük 1 nap alatt – fejlesztő nélkül\nShoprenter, WooCommerce vagy egyedi rendszer? A csatlakozás egyszerű, biztonságos és nem igényel IT-csapatot.",
   },
   {
-    icon: <svg width="48" height="48" fill="none" viewBox="0 0 48 48"><linearGradient id="brainGradient" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stopColor="#a78bfa"/><stop offset="1" stopColor="#38bdf8"/></linearGradient><ellipse cx="24" cy="24" rx="14" ry="10" fill="url(#brainGradient)"/><ellipse cx="24" cy="24" rx="10" ry="7" fill="#fff" fillOpacity=".3"/></svg>,
+    emoji: "🟣",
+    number: 2,
     title: "Betanítás",
-    desc: "Tudásbázis, GYIK, rendeléslogika beépítése",
+    desc: "Megtanítjuk a chatbotot a te szabályaid szerint\nGYIK, rendeléslogika, visszaküldési folyamatok, kampányok – minden működésedet megtanulja és testreszabottan alkalmazza.",
   },
   {
-    icon: <svg width="48" height="48" fill="none" viewBox="0 0 48 48"><linearGradient id="rocketGradient" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stopColor="#a78bfa"/><stop offset="1" stopColor="#38bdf8"/></linearGradient><path d="M24 4l6 12h-4v8h-4v-8h-4l6-12Z" fill="url(#rocketGradient)"/><ellipse cx="24" cy="40" rx="4" ry="2" fill="#a78bfa"/></svg>,
-    title: "Indítás & Automatikus Ügyintézés",
-    desc: "A ChatBuddy önállóan dolgozik, figyel, ajánl, kommunikál",
+    emoji: "🔺",
+    number: 3,
+    title: "Indítás & Automatizálás",
+    desc: "A ChatBuddy innentől önállóan dolgozik helyetted\nVálaszol, rendelést kezel, ajánlatot küld, és közben automatikusan riportol – 24/7-ben, hiba nélkül.",
   },
 ];
 
@@ -85,11 +88,11 @@ export default function HowItWorks() {
       {/* Cím csak typewriter + kurzor effekt, ikon csak scroll>=10% */}
       <h2
         ref={titleRef}
-        className="text-center flex items-center gap-3 justify-center mb-10"
+        className="text-center flex flex-col items-center justify-center mb-10"
         style={{ color: 'black', fontWeight: 600, textAlign: 'center', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 0 }}
       >
         {(typing || displayed.length > 0) && (
-          <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom">🛠️</span>
+          <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom mb-2">🛠️</span>
         )}
         <span style={{ position: 'relative', display: 'inline-block', minHeight: '1.2em' }}>
           {displayed}
@@ -114,14 +117,46 @@ export default function HowItWorks() {
             key={i}
             ref={cardRefs[i]}
             style={{ x: cardsTransforms[i].x, opacity: cardsTransforms[i].opacity }}
-            className="flex-1 flex flex-col items-center rounded-3xl p-8 min-h-[280px] relative transition-transform hover:-translate-y-1 hover:shadow-2xl backdrop-blur-xl bg-[#f9fafb]/60 border border-white/40 shadow-xl"
+            className="flex-1 flex flex-col items-center rounded-3xl p-8 min-h-[320px] w-[340px] relative transition-transform hover:-translate-y-1 hover:shadow-2xl backdrop-blur-xl bg-white/30 border border-white/40 shadow-xl"
           >
-            <div className="mb-4">{step.icon}</div>
-            <span className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-primaryFrom to-primaryTo text-white font-bold text-base md:text-lg shadow-md mb-2">{i + 1}</span>
-            <h3 className="text-lg md:text-xl font-bold mb-2 text-center bg-gradient-to-r from-accent to-primaryTo bg-clip-text text-transparent">
-              {step.title}
+            <div className="flex flex-col items-center mb-4">
+              <span className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#38bdf8] text-white font-bold text-2xl md:text-3xl shadow-lg mb-2">
+                {step.number}
+              </span>
+            </div>
+            <h3 className="text-lg md:text-xl font-bold mb-2 text-center">
+              {step.emoji} {step.title}
             </h3>
-            <p className="text-subtleText text-base text-center">{step.desc}</p>
+            <p className="text-subtleText text-base text-center whitespace-pre-line">
+              {(() => {
+                // Sentences to bold and break after
+                const boldSentences = [
+                  "Webshopodhoz illesztjük 1 nap alatt – fejlesztő nélkül\n",
+                  "Megtanítjuk a chatbotot a te szabályaid szerint\n",
+                  "A ChatBuddy innentől önállóan dolgozik helyetted\n",
+                ];
+                const found = boldSentences.find(s => step.desc.startsWith(s));
+                if (found) {
+                  const rest = step.desc.slice(found.length).trimStart();
+                  return <>
+                    <strong>{found}</strong><br />{rest}
+                  </>;
+                }
+                // Fallback: previous logic
+                const re = /([.!?])([ \n]|$)/;
+                const idx = step.desc.search(re);
+                if (idx !== -1) {
+                  const endIdx = idx + 1;
+                  const first = step.desc.slice(0, endIdx);
+                  const rest = step.desc.slice(endIdx).trimStart();
+                  return <>
+                    <strong>{first}</strong>{rest ? ' ' + rest : ''}
+                  </>;
+                } else {
+                  return <strong>{step.desc}</strong>;
+                }
+              })()}
+            </p>
           </motion.div>
         ))}
       </div>

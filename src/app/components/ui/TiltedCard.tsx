@@ -91,65 +91,54 @@ export default function TiltedCard({
   }
 
   return (
-    <figure
-      ref={ref}
-      className="tilted-card-figure"
-      style={{
-        height: containerHeight,
-        width: containerWidth,
-      }}
-      onMouseMove={handleMouse}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      {showMobileWarning && (
-        <div className="tilted-card-mobile-alert">
-          This effect is not optimized for mobile. Check on desktop.
-        </div>
-      )}
-
-      <motion.div
-        className="tilted-card-inner relative"
+    <div className="relative w-full h-full flex flex-col items-center justify-between">
+      <motion.figure
+        ref={ref}
+        className="tilted-card-figure bg-[#f9fafb]/60 backdrop-blur-md border border-white/30 rounded-2xl flex flex-col items-center justify-between transition-shadow duration-200 shadow-2xl relative z-10"
         style={{
-          width: imageWidth,
-          height: imageHeight,
+          height: containerHeight,
+          width: '100%',
+          maxWidth: 370,
+          padding: '1.5rem 1rem',
+          boxSizing: 'border-box',
+          perspective: 800,
           rotateX,
           rotateY,
           scale,
         }}
+        onMouseMove={handleMouse}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
-        <motion.img
-          src={imageSrc}
-          alt={altText}
-          className="tilted-card-img"
-          style={{
-            width: imageWidth,
-            height: imageHeight,
-          }}
-        />
-
-        {displayOverlayContent && overlayContent && (
-          <motion.div
-            className="tilted-card-overlay absolute left-4 right-4 bottom-4 mx-auto w-auto max-w-[90%] px-4 py-3"
-          >
-            {overlayContent}
-          </motion.div>
+        {showMobileWarning && (
+          <div className="tilted-card-mobile-alert">
+            This effect is not optimized for mobile. Check on desktop.
+          </div>
         )}
-      </motion.div>
 
-      {showTooltip && (
-        <motion.figcaption
-          className="tilted-card-caption"
-          style={{
-            x,
-            y,
-            opacity,
-            rotate: rotateFigcaption,
-          }}
-        >
-          {captionText}
-        </motion.figcaption>
-      )}
-    </figure>
+        <div className="flex flex-col items-center justify-start w-full flex-1">
+          <img
+            src={imageSrc}
+            alt={altText}
+            className="tilted-card-img mb-4 block mx-auto rounded-[2rem]"
+            style={{
+              width: '220px',
+              height: '220px',
+              objectFit: 'contain',
+              margin: '0 auto',
+              position: 'static',
+              top: undefined,
+              left: undefined,
+            }}
+          />
+          <figcaption
+            className="w-full text-center text-gray-800 text-base font-medium mt-4 px-2"
+            style={{ minHeight: 48 }}
+          >
+            {captionText}
+          </figcaption>
+        </div>
+      </motion.figure>
+    </div>
   );
 } 

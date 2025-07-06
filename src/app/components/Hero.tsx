@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Aurora from "./Aurora";
 import { motion } from "framer-motion";
 
@@ -10,6 +10,10 @@ export default function Hero() {
   const [currentWord, setCurrentWord] = useState(0);
   const [displayed, setDisplayed] = useState("");
   const [typing, setTyping] = useState(true);
+  const [showMessages, setShowMessages] = useState(false);
+  // 3D tilt state a mockup képhez
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -31,12 +35,27 @@ export default function Hero() {
     return () => clearTimeout(timeout);
   }, [displayed, typing, currentWord]);
 
+  function handleTilt(e: React.MouseEvent<HTMLImageElement, MouseEvent>) {
+    const rect = imgRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateY = ((x - centerX) / centerX) * 12; // max 12 fok
+    const rotateX = -((y - centerY) / centerY) * 12;
+    setTilt({ x: rotateX, y: rotateY });
+  }
+  function resetTilt() {
+    setTilt({ x: 0, y: 0 });
+  }
+
   return (
     <section
-      className="relative w-full min-h-[32rem] py-20 px-8 overflow-hidden"
+      className="relative w-full min-h-[32rem] pb-10 px-8 overflow-hidden"
     >
       {/* Tartalom középre igazítva */}
-      <div className="relative z-10 max-w-[75rem] mx-auto w-full flex flex-col lg:flex-row items-center justify-center min-h-[32rem] py-12 px-8 gap-12 lg:gap-16 pt-24 sm:pt-32 md:pt-40 lg:pt-80">
+      <div className="relative z-10 max-w-[75rem] mx-auto w-full flex flex-col lg:flex-row items-center justify-center min-h-[32rem] py-12 px-8 gap-12 lg:gap-16 pt-24 sm:pt-32 md:pt-40 lg:pt-40">
         {/* Bal oldal: szöveg */}
         <div className="flex-1 flex flex-col items-start justify-center max-w-[40rem] px-0 gap-8 w-full">
           {/* 3 soros főcím typewriter effekttel */}
@@ -94,55 +113,26 @@ export default function Hero() {
             </button>
           </motion.div>
         </div>
-        {/* Jobb oldal: chat UI mockup */}
+        {/* Jobb oldal: új chat UI mockup helyett kép */}
         <motion.div
           className="flex-1 flex items-center justify-center w-full mt-8 lg:mt-0"
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <div className="w-full max-w-xs sm:max-w-sm md:w-[320px] aspect-[370/420] rounded-card shadow-card border border-divider bg-foreground p-0 overflow-hidden">
-            {/* Fejléc */}
-            <div className="flex items-center gap-3 px-4 py-4 bg-background border-b border-divider">
-              <span className="w-8 h-8 rounded-full bg-gradient-to-r from-primaryFrom to-primaryTo flex items-center justify-center text-white text-sm font-bold">🤖</span>
-              <div className="flex flex-col ml-2">
-                <span className="text-sm font-semibold text-bodyText">AI Ügyfélszolgálat</span>
-                <span className="text-xs text-green-500 font-medium">Online</span>
-              </div>
-            </div>
-            {/* Üzenetek */}
-            <div className="flex flex-col gap-3 px-4 py-6 bg-background min-h-[180px]">
-              <div className="flex items-start gap-3">
-                <span className="w-7 h-7 rounded-full bg-badgeBg flex items-center justify-center text-subtleText text-sm font-medium">👤</span>
-                <div className="bg-foreground text-bodyText px-4 py-3 rounded-xl text-sm max-w-[220px] border border-divider shadow-sm">
-                  Szia! Miben segíthetek?
-                </div>
-              </div>
-              <div className="flex items-start gap-3 justify-end">
-                <div className="bg-gradient-to-r from-primaryFrom to-primaryTo text-white px-4 py-3 rounded-xl text-sm max-w-[220px] ml-auto shadow-sm">
-                  Kérdésem lenne a szolgáltatásokról
-                </div>
-                <span className="w-7 h-7 rounded-full bg-badgeBg flex items-center justify-center text-subtleText text-sm font-medium">👤</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="w-7 h-7 rounded-full bg-badgeBg flex items-center justify-center text-subtleText text-sm font-medium">🤖</span>
-                <div className="bg-foreground text-bodyText px-4 py-3 rounded-xl text-sm max-w-[220px] border border-divider shadow-sm">
-                  Természetesen! Szívesen válaszolok minden kérdésére.
-                </div>
-              </div>
-            </div>
-            {/* Input */}
-            <div className="flex items-center gap-3 px-4 py-4 bg-background border-t border-divider">
-              <input
-                className="flex-1 rounded-lg bg-foreground text-bodyText px-4 py-3 text-sm border border-divider focus:outline-none focus:ring-2 focus:ring-highlight focus:border-transparent transition-all"
-                placeholder="Írj üzenetet..."
-                disabled
-              />
-              <button className="w-10 h-10 rounded-full bg-gradient-to-r from-primaryFrom to-primaryTo hover:shadow-xl flex items-center justify-center text-white text-lg transition-all duration-200 hover:-translate-y-0.5">
-                ➤
-              </button>
-            </div>
-          </div>
+          <img
+            ref={imgRef}
+            src="/chat.png"
+            alt="Chat mockup"
+            className="max-w-md w-full mx-auto cursor-pointer"
+            style={{
+              filter: 'drop-shadow(0 16px 64px rgba(56,189,248,0.45))',
+              transform: `perspective(900px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+              transition: 'transform 0.25s cubic-bezier(.22,1,.36,1)',
+            }}
+            onMouseMove={handleTilt}
+            onMouseLeave={resetTilt}
+          />
         </motion.div>
       </div>
     </section>

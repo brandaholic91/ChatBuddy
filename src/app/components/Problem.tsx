@@ -1,4 +1,5 @@
 import { GlowEffect } from "./ui/GlowEffect";
+import { GlowingEffect } from "./ui/Glowing";
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import TiltedCard from "./ui/TiltedCard";
@@ -98,11 +99,11 @@ export default function Problem() {
       {/* Cím typewriter + kurzor effekt */}
       <h2
         ref={titleRef}
-        className="text-center mb-10 flex items-center gap-3 justify-center"
+        className="text-center mb-10 flex flex-col items-center justify-center"
         style={{ color: 'black', fontWeight: 600, textAlign: 'center', marginBottom: '0.5rem', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em' }}
       >
         {(typing || displayed.length > 0) && (
-          <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom">❓</span>
+          <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom mb-2">❓</span>
         )}
         <span style={{ position: 'relative', display: 'inline-block', minHeight: '1.2em' }}>
           {displayed}
@@ -122,92 +123,84 @@ export default function Problem() {
           )}
         </span>
       </h2>
-      <div className="w-full max-w-5xl mx-auto mt-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+      <div className="w-full max-w-[800px] mx-auto mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-10 w-full justify-center items-center justify-items-center">
           {/* 1. kártya */}
-          <motion.div style={{ y: cardTransforms[0].y, opacity: cardTransforms[0].opacity }}>
-            <TiltedCard
-              imageSrc="/pic1.png"
-              altText="Ügyfélszolgálatod túlterhelt a rendelésállapotokról, visszaküldésről, szállításról szóló kérdésekkel?"
-              containerHeight="500px"
-              containerWidth="100%"
-              imageHeight="500px"
-              imageWidth="500px"
-              scaleOnHover={1.08}
-              rotateAmplitude={12}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent={true}
-              overlayContent={
-                <div className="absolute left-4 right-4 bottom-4 mx-auto w-auto max-w-[90%] px-6 py-5 backdrop-blur-md bg-white/40 border border-white/30 rounded-xl shadow-lg text-center text-base md:text-lg text-gray-900 font-medium leading-snug" style={{boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)'}}>
-                  Ügyfélszolgálatod túlterhelt a rendelésállapotokról, visszaküldésről, szállításról szóló kérdésekkel?
-                </div>
-              }
-            />
-          </motion.div>
+          <div className="flex justify-center w-full min-w-[370px] max-w-[370px] min-h-[500px] max-h-[500px] relative">
+            <GlowingEffect glow={true} spread={60} blur={32} borderWidth={8} disabled={false} className="z-30" variant="white" />
+            <motion.div className="flex flex-col items-center justify-center h-full relative z-40" style={{ y: cardTransforms[0].y, opacity: cardTransforms[0].opacity }}>
+              <TiltedCard
+                imageSrc="/pic1.png"
+                altText="Folyamatosan túl van terhelve az ügyfélszolgálatod a rendelésekkel, visszaküldésekkel és szállítási kérdésekkel kapcsolatos ismétlődő megkeresésektől?"
+                containerHeight="500px"
+                containerWidth="100%"
+                imageHeight="260px"
+                imageWidth="260px"
+                scaleOnHover={1.08}
+                rotateAmplitude={12}
+                showMobileWarning={false}
+                showTooltip={false}
+                captionText="Folyamatosan túl van terhelve az ügyfélszolgálatod a rendelésekkel, visszaküldésekkel és szállítási kérdésekkel kapcsolatos ismétlődő megkeresésektől?"
+              />
+            </motion.div>
+          </div>
           {/* 2. kártya */}
-          <motion.div style={{ y: cardTransforms[1].y, opacity: cardTransforms[1].opacity }}>
-            <TiltedCard
-              imageSrc="/pic2.png"
-              altText="Több csatornán kommunikálsz (Messenger, webchat, WhatsApp) – mégsem látjátok át egyben?"
-              containerHeight="500px"
-              containerWidth="100%"
-              imageHeight="500px"
-              imageWidth="500px"
-              scaleOnHover={1.08}
-              rotateAmplitude={12}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent={true}
-              overlayContent={
-                <div className="absolute left-4 right-4 bottom-4 mx-auto w-auto max-w-[90%] px-6 py-5 backdrop-blur-md bg-white/40 border border-white/30 rounded-xl shadow-lg text-center text-base md:text-lg text-gray-900 font-medium leading-snug" style={{boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)'}}>
-                  Több csatornán kommunikálsz (Messenger, webchat, WhatsApp) – mégsem látjátok át egyben?
-                </div>
-              }
-            />
-          </motion.div>
+          <div className="flex justify-center w-full min-w-[370px] max-w-[370px] min-h-[500px] max-h-[500px] relative">
+            <GlowingEffect glow={true} spread={60} blur={32} borderWidth={8} disabled={false} className="z-30" variant="white" />
+            <motion.div className="flex flex-col items-center justify-center h-full relative z-40" style={{ y: cardTransforms[1].y, opacity: cardTransforms[1].opacity }}>
+              <TiltedCard
+                imageSrc="/pic2.png"
+                altText="Kihívást jelent számotokra, hogy átlássátok a különböző csatornákon – például Messengeren, webchatben vagy e-mailben – beérkező vásárlói kérdéseket egyetlen rendszerben?"
+                containerHeight="500px"
+                containerWidth="100%"
+                imageHeight="260px"
+                imageWidth="260px"
+                scaleOnHover={1.08}
+                rotateAmplitude={12}
+                showMobileWarning={false}
+                showTooltip={false}
+                captionText="Kihívást jelent számotokra, hogy átlássátok a különböző csatornákon – például Messengeren, webchatben vagy e-mailben – beérkező vásárlói kérdéseket egyetlen rendszerben?"
+              />
+            </motion.div>
+          </div>
           {/* 3. kártya */}
-          <motion.div style={{ y: cardTransforms[2].y, opacity: cardTransforms[2].opacity }}>
-            <TiltedCard
-              imageSrc="/pic3.png"
-              altText="Kimaradnak potenciális vásárlók, mert nincs azonnali válasz?"
-              containerHeight="500px"
-              containerWidth="100%"
-              imageHeight="500px"
-              imageWidth="500px"
-              scaleOnHover={1.08}
-              rotateAmplitude={12}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent={true}
-              overlayContent={
-                <div className="absolute left-4 right-4 bottom-4 mx-auto w-auto max-w-[90%] px-6 py-5 backdrop-blur-md bg-white/40 border border-white/30 rounded-xl shadow-lg text-center text-base md:text-lg text-gray-900 font-medium leading-snug" style={{boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)'}}>
-                  Kimaradnak potenciális vásárlók, mert nincs azonnali válasz?
-                </div>
-              }
-            />
-          </motion.div>
+          <div className="flex justify-center w-full min-w-[370px] max-w-[370px] min-h-[500px] max-h-[500px] relative">
+            <GlowingEffect glow={true} spread={60} blur={32} borderWidth={8} disabled={false} className="z-30" variant="white" />
+            <motion.div className="flex flex-col items-center justify-center h-full relative z-40" style={{ y: cardTransforms[2].y, opacity: cardTransforms[2].opacity }}>
+              <TiltedCard
+                imageSrc="/pic3.png"
+                altText="Úgy érzed, hogy rengeteg potenciális vásárlót veszítetek el csak azért, mert nem tudtok időben reagálni a beérkező kérdésekre vagy termékérdeklődésekre?"
+                containerHeight="500px"
+                containerWidth="100%"
+                imageHeight="260px"
+                imageWidth="260px"
+                scaleOnHover={1.08}
+                rotateAmplitude={12}
+                showMobileWarning={false}
+                showTooltip={false}
+                captionText="Úgy érzed, hogy rengeteg potenciális vásárlót veszítetek el csak azért, mert nem tudtok időben reagálni a beérkező kérdésekre vagy termékérdeklődésekre?"
+              />
+            </motion.div>
+          </div>
           {/* 4. kártya */}
-          <motion.div style={{ y: cardTransforms[3].y, opacity: cardTransforms[3].opacity }}>
-            <TiltedCard
-              imageSrc="/pic4.png"
-              altText="Nincs idő follow-up üzenetekre vagy kosárelhagyók visszaszerzésére?"
-              containerHeight="500px"
-              containerWidth="100%"
-              imageHeight="500px"
-              imageWidth="500px"
-              scaleOnHover={1.08}
-              rotateAmplitude={12}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent={true}
-              overlayContent={
-                <div className="absolute left-4 right-4 bottom-4 mx-auto w-auto max-w-[90%] px-6 py-5 backdrop-blur-md bg-white/40 border border-white/30 rounded-xl shadow-lg text-center text-base md:text-lg text-gray-900 font-medium leading-snug" style={{boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)'}}>
-                  Nincs idő follow-up üzenetekre vagy kosárelhagyók visszaszerzésére?
-                </div>
-              }
-            />
-          </motion.div>
+          <div className="flex justify-center w-full min-w-[370px] max-w-[370px] min-h-[500px] max-h-[500px] relative">
+            <GlowingEffect glow={true} spread={60} blur={32} borderWidth={8} disabled={false} className="z-30" variant="white" />
+            <motion.div className="flex flex-col items-center justify-center h-full relative z-40" style={{ y: cardTransforms[3].y, opacity: cardTransforms[3].opacity }}>
+              <TiltedCard
+                imageSrc="/pic4.png"
+                altText="Hiába tudnátok több vásárlót visszahozni a kosárelhagyásból, nincs elég idő vagy rendszer arra, hogy automatikus utánkövető üzeneteket küldjetek nekik?"
+                containerHeight="500px"
+                containerWidth="100%"
+                imageHeight="260px"
+                imageWidth="260px"
+                scaleOnHover={1.08}
+                rotateAmplitude={12}
+                showMobileWarning={false}
+                showTooltip={false}
+                captionText="Hiába tudnátok több vásárlót visszahozni a kosárelhagyásból, nincs elég idő vagy rendszer arra, hogy automatikus utánkövető üzeneteket küldjetek nekik?"
+              />
+            </motion.div>
+          </div>
         </div>
       </div>
       <div className="mt-32 w-full flex justify-center">
