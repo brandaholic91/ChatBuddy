@@ -21,16 +21,20 @@ export default function Home() {
           <Hero />
         </div>
         <Problem />
-        <main className="flex flex-col items-center w-full min-h-screen bg-transparent px-4 md:px-12 xl:px-32 2xl:px-64 py-12 md:py-20">
+        <div className="flex flex-col items-center w-full min-h-screen bg-transparent px-4 md:px-12 xl:px-32 2xl:px-64 py-12 md:py-20">
           <div className="w-full max-w-7xl flex flex-col gap-24 md:gap-32 xl:gap-40">
             <Solution />
             <HowItWorks />
-            <Testimonials />
-            <Pricing />
-            <FAQ />
-            <CTA />
           </div>
-        </main>
+        </div>
+      </div>
+      <div className="w-screen relative left-1/2 right-1/2 -translate-x-1/2 bg-[#020617] py-0">
+        <div className="w-full max-w-7xl mx-auto flex flex-col gap-24 md:gap-32 xl:gap-40">
+          <Testimonials />
+          <Pricing />
+          <FAQ />
+          <CTA />
+        </div>
       </div>
     </>
   );

@@ -81,7 +81,7 @@ export default function HowItWorks() {
   const ctaY = useTransform(ctaScroll, [0, 1], [80, 0]);
   const ctaOpacity = useTransform(ctaScroll, [0, 1], [0, 1]);
   return (
-    <section className="relative py-section-y px-section-x flex flex-col items-center bg-background">
+    <section className="relative py-section-y px-section-x flex flex-col items-center bg-background pb-30">
       {/* Cím csak typewriter + kurzor effekt, ikon csak scroll>=10% */}
       <h2
         ref={titleRef}

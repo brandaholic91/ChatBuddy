@@ -70,45 +70,47 @@ export default function Testimonials() {
   }));
 
   return (
-    <section className="relative py-section-y px-section-x flex flex-col items-center bg-background">
-      <h2
-        ref={titleRef}
-        className="flex items-center gap-3 font-bold mb-10 text-center justify-center text-black"
-        style={{ fontWeight: 600, textAlign: 'center', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 0, color: 'black' }}
-      >
-        {(typing || displayed.length > 0) && (
-          <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom">💬</span>
-        )}
-        <span style={{ position: 'relative', display: 'inline-block', minHeight: '1.2em' }}>
-          {displayed}
-          <span style={{
-            background: 'linear-gradient(90deg, #a78bfa, #38bdf8)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            display: 'inline-block',
-            marginLeft: 2,
-            opacity: showCursor ? 1 : 0,
-            transition: 'opacity 0.2s',
-            filter: typing ? 'blur(2px)' : 'none',
-          }}>
-            |
+    <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-section-y">
+      <div className="max-w-4xl w-full mx-auto flex flex-col items-center px-section-x pt-20 pb-10">
+        <h2
+          ref={titleRef}
+          className="flex items-center gap-3 font-bold mb-10 text-center justify-center text-[#f9fafb]"
+          style={{ fontWeight: 600, textAlign: 'center', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 0, color: '#f9fafb' }}
+        >
+          {(typing || displayed.length > 0) && (
+            <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom">💬</span>
+          )}
+          <span style={{ position: 'relative', display: 'inline-block', minHeight: '1.2em' }}>
+            {displayed}
+            <span style={{
+              background: 'linear-gradient(90deg, #a78bfa, #38bdf8)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              display: 'inline-block',
+              marginLeft: 2,
+              opacity: showCursor ? 1 : 0,
+              transition: 'opacity 0.2s',
+              filter: typing ? 'blur(2px)' : 'none',
+            }}>
+              |
+            </span>
           </span>
-        </span>
-      </h2>
-      <div className="flex flex-col md:flex-row gap-8 max-w-4xl w-full justify-center items-stretch mt-10">
-        {testimonials.map((t, i) => (
-          <motion.div
-            key={i}
-            ref={cardRefs[i]}
-            style={{ y: cardsTransforms[i].y, opacity: cardsTransforms[i].opacity }}
-            className="flex-1 flex flex-col items-center rounded-3xl p-8 min-h-[220px] relative transition-transform hover:-translate-y-1 hover:shadow-2xl backdrop-blur-xl bg-[#f9fafb]/60 border border-white/40 shadow-xl"
-          >
-            <span className="text-5xl text-primaryFrom mb-4 select-none">"</span>
-            <p className="text-lg md:text-xl text-bodyText font-medium text-center mb-6 leading-relaxed">{t.quote}</p>
-            <div className="text-accent font-semibold text-base mb-1">{t.name}</div>
-            <div className="text-subtleText text-sm">{t.title}</div>
-          </motion.div>
-        ))}
+        </h2>
+        <div className="flex flex-col md:flex-row gap-8 w-full justify-center items-stretch mt-10">
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={i}
+              ref={cardRefs[i]}
+              style={{ y: cardsTransforms[i].y, opacity: cardsTransforms[i].opacity }}
+              className="flex-1 flex flex-col items-center rounded-3xl p-8 min-h-[220px] relative transition-transform hover:-translate-y-1 hover:shadow-2xl backdrop-blur-2xl bg-[#020617]/90 border border-white/20 shadow-2xl"
+            >
+              <span className="text-5xl text-[#f9fafb] mb-4 select-none">"</span>
+              <p className="text-lg md:text-xl text-[#f9fafb] font-medium text-center mb-6 leading-relaxed">{t.quote}</p>
+              <div className="text-[#f9fafb] font-semibold text-base mb-1">{t.name}</div>
+              <div className="text-[#f9fafb] text-sm">{t.title}</div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

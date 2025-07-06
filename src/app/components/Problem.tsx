@@ -84,13 +84,14 @@ export default function Problem() {
   // --- Cím kurzor villogás ---
   const [showCursor, setShowCursor] = useState(true);
   useEffect(() => {
-    if (!typing) {
+    // Csak akkor villogjon a kurzor, ha már elindult a gépelés vagy befejeződött (tehát scroll történt)
+    if (!typing && displayed.length > 0) {
       const interval = setInterval(() => setShowCursor((v) => !v), 500);
       return () => clearInterval(interval);
     } else {
       setShowCursor(true);
     }
-  }, [typing]);
+  }, [typing, displayed.length]);
 
   return (
     <section ref={sectionRef} className="relative pt-40 pb-16 px-8 flex flex-col items-center bg-background">
@@ -98,25 +99,27 @@ export default function Problem() {
       <h2
         ref={titleRef}
         className="text-center mb-10 flex items-center gap-3 justify-center"
-        style={{ color: 'black', fontWeight: 600, textAlign: 'center', marginBottom: '2.5rem', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em' }}
+        style={{ color: 'black', fontWeight: 600, textAlign: 'center', marginBottom: '0.5rem', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em' }}
       >
         {(typing || displayed.length > 0) && (
           <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom">❓</span>
         )}
         <span style={{ position: 'relative', display: 'inline-block', minHeight: '1.2em' }}>
           {displayed}
-          <span style={{
-            background: 'linear-gradient(90deg, #a78bfa, #38bdf8)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            display: 'inline-block',
-            marginLeft: 2,
-            opacity: showCursor ? 1 : 0,
-            transition: 'opacity 0.2s',
-            filter: typing ? 'blur(2px)' : 'none',
-          }}>
-            |
-          </span>
+          {displayed.length > 0 && (
+            <span style={{
+              background: 'linear-gradient(90deg, #a78bfa, #38bdf8)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              display: 'inline-block',
+              marginLeft: 2,
+              opacity: showCursor ? 1 : 0,
+              transition: 'opacity 0.2s',
+              filter: typing ? 'blur(2px)' : 'none',
+            }}>
+              |
+            </span>
+          )}
         </span>
       </h2>
       <div className="w-full max-w-5xl mx-auto mt-10">

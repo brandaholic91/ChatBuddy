@@ -117,12 +117,12 @@ export default function FAQ() {
   }, [typing]);
   return (
     <>
-      <section className="relative py-section-y px-section-x flex flex-col items-center bg-background">
+      <section className="relative py-section-y px-section-x flex flex-col items-center">
         <h2
           ref={titleRef}
-          className="flex items-center gap-3 font-bold mb-12 text-center justify-center"
+          className="flex items-center gap-3 font-bold mb-12 text-center justify-center text-[#f9fafb]"
           style={{
-            color: 'black',
+            color: '#f9fafb',
             fontWeight: 600,
             textAlign: 'center',
             fontSize: 'clamp(2rem, 4vw, 2.8rem)',
@@ -173,7 +173,7 @@ export default function FAQ() {
           { id: 20, question: "Hogyan működik a próbaidőszak?", answer: "Az ingyenes, 20 perces bemutató után igényelhetsz egy hónapos próbaidőszakot a Pro csomagra, így meggyőződhetsz a működéséről." },
         ]} />
       </section>
-      <div className="w-full flex justify-center mt-12 mb-4">
+      <div className="w-full flex justify-center mt-4 mb-4">
       </div>
     </>
   );

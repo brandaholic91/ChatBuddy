@@ -60,7 +60,7 @@ export function FaqAccordion({
                 <Accordion.Trigger className="flex w-full items-center justify-start gap-x-4">
                   <div
                     className={cn(
-                      "relative flex items-center space-x-2 rounded-xl p-2 transition-colors bg-[#f9fafb] border border-black/20 shadow-md",
+                      "relative flex items-center space-x-2 rounded-2xl p-4 transition-colors transition-shadow bg-[#020617]/90 border border-white/10 shadow-2xl text-[#f9fafb] text-lg md:text-xl hover:bg-[#111827]/90 hover:shadow-3xl",
                       questionClassName
                     )}
                   >
@@ -110,7 +110,7 @@ export function FaqAccordion({
                   <div className="ml-7 mt-1 md:ml-16">
                     <div
                       className={cn(
-                        "relative max-w-xl rounded-2xl bg-gradient-to-r from-[#6366f1] to-[#38bdf8] text-white px-4 py-2",
+                        "relative max-w-xl rounded-2xl px-6 py-4 bg-gradient-to-r from-[#6366f1] to-[#38bdf8] text-white text-lg md:text-xl",
                         answerClassName
                       )}
                     >

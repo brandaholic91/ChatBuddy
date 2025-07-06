@@ -102,11 +102,11 @@ export default function Pricing() {
   const ctaOpacity = useTransform(ctaScroll, [0, 1], [0, 1]);
 
   return (
-    <section className="relative py-section-y px-section-x flex flex-col items-center bg-background">
+    <section className="relative py-section-y px-section-x flex flex-col items-center">
       <h2
         ref={titleRef}
-        className="flex items-center gap-3 font-bold mb-10 text-center justify-center text-black"
-        style={{ color: 'black', fontWeight: 600, textAlign: 'center', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 0 }}
+        className="flex items-center gap-3 font-bold mb-10 text-center justify-center text-[#f9fafb]"
+        style={{ color: '#f9fafb', fontWeight: 600, textAlign: 'center', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 0 }}
       >
         {(typing || displayed.length > 0) && (
           <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom">💰</span>
@@ -127,27 +127,27 @@ export default function Pricing() {
           </span>
         </span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl w-full mb-10 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl w-full mb-10 mt-10">
         {plans.map((plan, i) => (
           <motion.div
             key={i}
             ref={cardRefs[i]}
             style={{ y: cardsTransforms[i].y, opacity: cardsTransforms[i].opacity }}
-            className={`flex flex-col items-center rounded-3xl p-10 min-h-[420px] relative transition-transform hover:-translate-y-1 hover:shadow-2xl backdrop-blur-xl bg-[#f9fafb]/60 border border-white/40 shadow-xl ${plan.highlight ? '' : ''}`}
+            className={`flex flex-col items-center rounded-3xl p-12 min-h-[520px] relative transition-transform hover:-translate-y-1 hover:shadow-2xl backdrop-blur-2xl bg-[#020617]/90 border border-white/20 shadow-2xl ${plan.highlight ? '' : ''}`}
           >
-            <div className={`text-xl font-bold mb-2 ${plan.highlight ? 'text-[#7c3aed]' : 'text-primaryFrom'}`}>{plan.name}</div>
-            <div className="text-4xl font-extrabold text-bodyText mb-1">{plan.price}</div>
-            <div className="text-subtleText mb-2">havonta</div>
-            <div className="text-subtleText text-sm mb-4 font-medium">{plan.setup}</div>
+            <div className={`text-xl font-bold mb-2 text-[#f9fafb] ${plan.highlight ? 'text-[#7c3aed]' : 'text-primaryFrom'}`}>{plan.name}</div>
+            <div className="text-4xl font-extrabold text-[#f9fafb] mb-1">{plan.price}</div>
+            <div className="text-[#f9fafb] mb-2">havonta</div>
+            <div className="text-[#f9fafb] text-sm mb-4 font-medium">{plan.setup}</div>
             <ul className="flex flex-col gap-2 w-full mb-6">
               {plan.features.map((f, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-bodyText text-base">
+                <li key={idx} className="flex items-center gap-3 text-[#f9fafb] text-base">
                   <span className="flex items-center justify-center w-6 h-6 rounded-full bg-green-100 text-green-500 text-lg">✓</span>
                   {f}
                 </li>
               ))}
             </ul>
-            <button className="mt-auto w-full button">
+            <button className="mt-auto w-full bg-[#f9fafb] text-black font-bold rounded-full py-3 px-6 transition-colors duration-200 shadow-lg hover:bg-gradient-to-br hover:from-[#6366f1] hover:to-[#38bdf8] hover:text-white">
               Válaszd ezt a csomagot
             </button>
           </motion.div>
@@ -156,7 +156,7 @@ export default function Pricing() {
       <div className="flex flex-col gap-4 w-full max-w-2xl mx-auto">
         <motion.div
           ref={infoRef}
-          className="px-6 py-4 rounded-card bg-foreground shadow-card text-center text-base md:text-lg font-medium text-primaryFrom"
+          className="px-6 py-4 rounded-card bg-[#020617]/90 shadow-2xl backdrop-blur-2xl text-[#f9fafb] text-center text-base md:text-lg font-medium"
           style={{ y: infoY, opacity: infoOpacity }}
         >
           <span className="font-semibold">Nincs rejtett költség.</span> Nincs szerver. Nincs LLM API szükséglet.

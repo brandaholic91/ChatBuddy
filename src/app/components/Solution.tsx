@@ -104,7 +104,7 @@ export default function Solution() {
           </span>
         </span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl w-full items-center mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl w-full items-center mt-10 mb-20">
         {/* Bal oldal: illusztráció animációval */}
         <motion.div
           style={{ x: leftX, opacity: leftOpacity }}

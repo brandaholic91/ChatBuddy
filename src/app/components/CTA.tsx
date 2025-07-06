@@ -49,8 +49,8 @@ export default function CTA() {
   }, [typing]);
 
   return (
-    <section className="relative py-section-y px-section-x flex flex-col items-center bg-background">
-      <div className="w-full max-w-3xl mx-auto bg-foreground rounded-3xl shadow-card px-6 py-12 flex flex-col items-center text-center">
+    <section className="relative py-section-y px-section-x flex flex-col items-center pb-20">
+      <div className="w-full max-w-3xl mx-auto bg-[#020617]/90 rounded-3xl shadow-card px-6 py-12 flex flex-col items-center text-center text-[#f9fafb]">
         <motion.span
           className="text-4xl md:text-5xl mb-2"
           initial={{ opacity: 0, y: 60 }}
@@ -61,8 +61,8 @@ export default function CTA() {
           🤖
         </motion.span>
         <motion.h2
-          className="font-bold mb-10"
-          style={{ color: 'black', fontWeight: 600, textAlign: 'center', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 0 }}
+          className="font-bold mb-10 text-[#f9fafb]"
+          style={{ color: '#f9fafb', fontWeight: 600, textAlign: 'center', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 0 }}
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -71,7 +71,7 @@ export default function CTA() {
           Készen állsz automatizálni a legunalmasabb ügyfélszolgálati feladatokat?
         </motion.h2>
         <motion.div
-          className="text-subtleText text-lg mb-8 mt-10"
+          className="text-lg mb-8 mt-10 text-[#f9fafb]"
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -80,7 +80,7 @@ export default function CTA() {
           Foglalj bemutatót most – és legyen a ChatBuddy a legmegbízhatóbb kollégád!
         </motion.div>
         <motion.button
-          className="cta-animated w-full sm:w-auto button text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-6 relative overflow-hidden"
+          className="cta-animated w-full sm:w-auto button text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-6 relative overflow-hidden mb-16 text-[#f9fafb]"
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
