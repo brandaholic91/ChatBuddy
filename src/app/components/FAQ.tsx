@@ -119,7 +119,7 @@ export default function FAQ() {
   }, [typing]);
   return (
     <>
-      <section className="relative py-section-y px-section-x flex flex-col items-center">
+      <section className="relative py-section-y px-section-x flex flex-col items-center pb-30">
         <div className="flex flex-col items-center mb-2">
           {(typing || displayed.length > 0) && (
             <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom mb-2">❓</span>

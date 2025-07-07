@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 
 const solutions = [
   "Amíg máshol túlóráznak, ChatBuddy ugyanazzal a sebességgel és minőséggel viszi le a legnagyobb rohamot is.",
@@ -127,9 +128,11 @@ export default function Solution() {
           className="flex justify-center items-center h-full"
         >
           <div className="w-full max-w-[420px] aspect-square rounded-3xl shadow-2xl flex items-center justify-center overflow-hidden relative">
-            <img
+            <Image
               src="/ChatBuddy.png"
               alt="ChatBuddy illusztráció"
+              width={420}
+              height={420}
               className="w-full h-full object-cover rounded-3xl drop-shadow-2xl"
             />
             <div className="absolute inset-0 bg-white/30 rounded-3xl pointer-events-none" />

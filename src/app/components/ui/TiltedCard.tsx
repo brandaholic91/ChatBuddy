@@ -2,6 +2,7 @@ import type { SpringOptions } from "framer-motion";
 import { useRef, useState, HTMLAttributes } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import "./TiltedCard.css";
+import Image from "next/image";
 
 interface TiltedCardProps {
   imageSrc: React.ComponentProps<"img">["src"];
@@ -126,11 +127,13 @@ export default function TiltedCard({
       )}
 
         <div className="flex flex-col items-center justify-start w-full flex-1">
-          <img
-          src={imageSrc}
-          alt={altText}
+          <Image
+            src={imageSrc || ''}
+            alt={altText || ''}
+            width={220}
+            height={220}
             className="tilted-card-img mb-4 block mx-auto rounded-[2rem]"
-          style={{
+            style={{
               width: '220px',
               height: '220px',
               objectFit: 'contain',
@@ -206,9 +209,11 @@ export function TiltedImage({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <img
-        src={src}
-        alt={alt}
+      <Image
+        src={src || ''}
+        alt={alt || ''}
+        width={300}
+        height={300}
         className="w-full h-full object-cover rounded-[inherit]"
         style={{ display: "block" }}
         {...rest}

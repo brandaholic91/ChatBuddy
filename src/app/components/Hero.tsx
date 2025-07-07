@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const words = ["Elégedettebb", "Boldogabb", "Hűségesebb"];
 
@@ -119,10 +120,12 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <img
+          <Image
             ref={imgRef}
             src="/chat.png"
             alt="Chat mockup"
+            width={400}
+            height={400}
             className="max-w-md w-full mx-auto cursor-pointer"
             style={{
               filter: 'drop-shadow(0 16px 64px rgba(56,189,248,0.45))',

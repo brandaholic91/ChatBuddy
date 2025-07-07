@@ -3,6 +3,7 @@ import { GlowingEffect } from "./ui/Glowing";
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import TiltedCard from "./ui/TiltedCard";
+import Image from "next/image";
 
 const problems = [
   {
@@ -154,9 +155,11 @@ export default function Problem() {
             >
               <GlowingEffect glow={true} spread={32} blur={12} borderWidth={18} proximity={300} inactiveZone={0} disabled={false} className="z-10" variant="default" />
               <div className="bg-white border-2 border-[#ececec] rounded-2xl shadow-2xl flex flex-col items-center justify-start w-full h-full p-6 box-border flex flex-col relative z-20">
-                <img
+                <Image
                   src="/pic1.png"
                   alt="Folyamatosan túl van terhelve az ügyfélszolgálatod a rendelésekkel, visszaküldésekkel és szállítási kérdésekkel kapcsolatos ismétlődő megkeresésektől?"
+                  width={220}
+                  height={220}
                   className="mb-10 block mx-auto rounded-[2rem] w-[220px] h-[220px] object-contain"
                 />
                 <div className="w-full text-center text-gray-800 text-base font-medium px-2">
@@ -173,9 +176,11 @@ export default function Problem() {
             >
               <GlowingEffect glow={true} spread={32} blur={12} borderWidth={18} proximity={300} inactiveZone={0} disabled={false} className="z-10" variant="default" />
               <div className="bg-white border-2 border-[#ececec] rounded-2xl shadow-2xl flex flex-col items-center justify-start w-full h-full p-6 box-border flex flex-col relative z-20">
-                <img
+                <Image
                   src="/pic2.png"
                   alt="Kihívást jelent számotokra, hogy átlássátok a különböző csatornákon – például Messengeren, webchatben vagy e-mailben – beérkező vásárlói kérdéseket egyetlen rendszerben?"
+                  width={220}
+                  height={220}
                   className="mb-10 block mx-auto rounded-[2rem] w-[220px] h-[220px] object-contain"
                 />
                 <div className="w-full text-center text-gray-800 text-base font-medium px-2">
@@ -192,9 +197,11 @@ export default function Problem() {
             >
               <GlowingEffect glow={true} spread={32} blur={12} borderWidth={18} proximity={300} inactiveZone={0} disabled={false} className="z-10" variant="default" />
               <div className="bg-white border-2 border-[#ececec] rounded-2xl shadow-2xl flex flex-col items-center justify-start w-full h-full p-6 box-border flex flex-col relative z-20">
-                <img
+                <Image
                   src="/pic3.png"
                   alt="Úgy érzed, hogy rengeteg potenciális vásárlót veszítetek el csak azért, mert nem tudtok időben reagálni a beérkező kérdésekre vagy érdeklődésekre?"
+                  width={220}
+                  height={220}
                   className="mb-10 block mx-auto rounded-[2rem] w-[220px] h-[220px] object-contain"
                 />
                 <div className="w-full text-center text-gray-800 text-base font-medium px-2">
@@ -211,9 +218,11 @@ export default function Problem() {
             >
               <GlowingEffect glow={true} spread={32} blur={12} borderWidth={18} proximity={300} inactiveZone={0} disabled={false} className="z-10" variant="default" />
               <div className="bg-white border-2 border-[#ececec] rounded-2xl shadow-2xl flex flex-col items-center justify-start w-full h-full p-6 box-border flex flex-col relative z-20">
-                <img
+                <Image
                   src="/pic4.png"
                   alt="Hiába tudnátok több vásárlót visszahozni a kosárelhagyásból, nincs elég idő vagy rendszer arra, hogy automatikus utánkövető üzeneteket küldjetek nekik?"
+                  width={220}
+                  height={220}
                   className="mb-10 block mx-auto rounded-[2rem] w-[220px] h-[220px] object-contain"
                 />
                 <div className="w-full text-center text-gray-800 text-base font-medium px-2">

@@ -53,7 +53,7 @@ export function TestimonialCard ({ handleShuffle, testimonial, position, id, aut
         </svg>
       </div>
       <span className="text-center text-lg italic" style={{ color: '#f9fafb' }}>
-        "{testimonial}"
+        &quot;{testimonial}&quot;
       </span>
       <span className="text-center text-sm font-medium" style={{ color: '#f9fafb' }}>
         {author}
