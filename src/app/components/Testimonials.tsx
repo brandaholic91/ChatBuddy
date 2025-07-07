@@ -76,8 +76,8 @@ export default function Testimonials() {
 
   return (
     <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-section-y">
-      <div className="max-w-4xl w-full mx-auto flex flex-col items-center px-section-x pt-20 pb-10">
-        <div className="flex flex-col items-center mb-2">
+      <div className="max-w-4xl w-full mx-auto flex flex-col items-start sm:items-center px-section-x pt-20 pb-10">
+        <div className="flex flex-col items-center justify-center mb-2 w-full">
           <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom mb-2">💬</span>
           <h2
             ref={titleRef}
@@ -101,7 +101,7 @@ export default function Testimonials() {
             </span>
           </h2>
         </div>
-        <div className="relative h-[450px] w-[350px] mx-auto mt-10 -ml-[-150px]">
+        <div className="relative h-[320px] w-[70vw] max-w-[180px] lg:max-w-none sm:h-[450px] sm:w-[350px] lg:h-[520px] lg:w-[420px] mx-0 ml-14 lg:ml-32 sm:mx-auto mt-10">
           {order.map((idx, i) => (
             <div
               key={testimonials[idx].id}

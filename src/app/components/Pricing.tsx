@@ -210,7 +210,7 @@ export default function Pricing() {
           style={{ y: ctaY, opacity: ctaOpacity }}
         >
           <button
-            className="cta-animated w-full sm:w-auto button text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-6 relative overflow-hidden"
+            className="cta-animated w-full max-w-xs sm:max-w-none sm:w-auto button text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-6 relative overflow-hidden mx-auto"
             style={{ fontWeight: 600 }}
           >
             Foglalj ingyenes bemutatót! 👉

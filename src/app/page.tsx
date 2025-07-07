@@ -10,20 +10,35 @@ import Pricing from "./components/Pricing";
 import FAQ from "./components/FAQ";
 import CTA from "./components/CTA";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [amplitude, setAmplitude] = useState(2.0);
+  useEffect(() => {
+    const checkMobile = () => {
+      if (window.matchMedia('(max-width: 640px)').matches) {
+        setAmplitude(1.0);
+      } else {
+        setAmplitude(2.0);
+      }
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <>
       <div style={{ position: "relative", zIndex: 1 }}>
         <div className="relative">
-          <div className="absolute top-0 left-0 w-full h-[30rem] sm:h-[35rem] md:h-[40rem] lg:h-[45rem] z-0 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-[18rem] sm:h-[28rem] md:h-[40rem] lg:h-[45rem] z-0 pointer-events-none">
             <motion.div
-              className="absolute top-0 left-0 w-full h-[30rem] sm:h-[35rem] md:h-[40rem] lg:h-[45rem] z-0 pointer-events-none"
+              className="absolute top-0 left-0 w-full h-[18rem] sm:h-[28rem] md:h-[40rem] lg:h-[45rem] z-0 pointer-events-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.2 }}
             >
-            <Aurora colorStops={["#22d3ee", "#38bdf8", "#a78bfa", "#22d3ee"]} blend={1.0} amplitude={2.0} speed={0.8} />
+            <Aurora colorStops={["#22d3ee", "#38bdf8", "#a78bfa", "#22d3ee"]} blend={1.0} amplitude={amplitude} speed={0.8} />
             </motion.div>
           </div>
           <Hero />

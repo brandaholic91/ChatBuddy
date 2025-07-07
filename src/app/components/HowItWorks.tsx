@@ -125,13 +125,13 @@ export default function HowItWorks() {
         </span>
       </h2>
       {/* Lépések kártyákban */}
-      <div className="flex flex-col md:flex-row gap-8 max-w-5xl w-full justify-center items-stretch mt-10">
+      <div className="flex flex-col md:flex-row gap-8 max-w-5xl w-full justify-center items-center mt-10">
         {steps.map((step, i) => (
           <motion.div
             key={i}
             ref={cardRefs[i]}
             style={{ x: cardsTransforms[i].x, opacity: cardsTransforms[i].opacity }}
-            className="flex-1 flex flex-col items-center rounded-3xl p-8 min-h-[320px] w-[340px] relative transition-transform hover:-translate-y-1 hover:shadow-2xl backdrop-blur-xl bg-white/30 border border-white/40 shadow-xl"
+            className="flex-1 flex flex-col items-center rounded-3xl p-8 min-h-[320px] w-full max-w-xs sm:max-w-sm md:w-[340px] relative transition-transform hover:-translate-y-1 hover:shadow-2xl backdrop-blur-xl bg-white/30 border border-white/40 shadow-xl"
           >
             <div className="flex flex-col items-center mb-4">
               <span className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#38bdf8] text-white font-bold text-2xl md:text-3xl shadow-lg mb-2">
@@ -184,7 +184,7 @@ export default function HowItWorks() {
           className="cta-animated w-full sm:w-auto button text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-6 relative overflow-hidden"
           style={{ fontWeight: 600 }}
         >
-          Foglalj most 20 percet – teljesen ingyen 👉
+          Kérem az ingyenes demót  👉
         </button>
       </motion.div>
     </section>

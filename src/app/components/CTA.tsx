@@ -49,8 +49,8 @@ export default function CTA() {
   }, [typing]);
 
   return (
-    <section className="relative py-section-y px-section-x flex flex-col items-center pb-20">
-      <div className="w-full max-w-3xl mx-auto bg-[#020617]/90 rounded-3xl shadow-card px-6 py-12 flex flex-col items-center text-center text-[#f9fafb]">
+    <section className="relative py-section-y px-section-x flex flex-col items-center pb-0 sm:pb-20">
+      <div className="w-full max-w-3xl mx-auto bg-[#020617]/90 rounded-3xl shadow-card px-6 pt-0 pb-10 flex flex-col items-center text-center text-[#f9fafb]">
         <motion.h2
           className="font-bold mb-10 text-[#f9fafb]"
           style={{ color: '#f9fafb', fontWeight: 600, textAlign: 'center', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 0 }}

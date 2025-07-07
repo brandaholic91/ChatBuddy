@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import TiltedCard from "./ui/TiltedCard";
 import Image from "next/image";
+import { useInView } from 'react-intersection-observer';
 
 const problems = [
   {
@@ -28,11 +29,11 @@ export default function Problem() {
   const [hasScrolled, setHasScrolled] = useState(false);
   useEffect(() => {
     const onScroll = () => {
-      if (window.scrollY > 0) setHasScrolled(true);
+      if (window.scrollY > 0 && !hasScrolled) setHasScrolled(true);
     };
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [hasScrolled]);
 
   // Cím animáció: progress 0.05-0.25 között fade-in alulról, csak scrollra
   const titleY = useTransform(scrollYProgress, [0.05, 0.25], [80, 0]);
@@ -66,21 +67,20 @@ export default function Problem() {
   const titleText = "Neked is ismerősek ezek a helyzetek?";
   const [displayed, setDisplayed] = useState("");
   const [typing, setTyping] = useState(false);
-  const titleRef = useRef(null);
-  const { scrollYProgress: titleScroll } = useScroll({ target: titleRef, offset: ["start 0.9", "end 0.5"] });
+  const [typewriterStarted, setTypewriterStarted] = useState(false);
+  const { ref: inViewRef, inView } = useInView({ threshold: 0.7, triggerOnce: true });
+
   useEffect(() => {
-    const unsubscribe = titleScroll.on("change", (v) => {
-      if (v >= 0.1 && !typing && displayed.length === 0) {
-        setTyping(true);
-      }
-    });
-    return () => unsubscribe();
-  }, [typing, displayed.length, titleScroll]);
+    if (hasScrolled && !typewriterStarted) {
+      setTyping(true);
+      setTypewriterStarted(true);
+    }
+  }, [hasScrolled, typewriterStarted]);
+
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     if (typing) {
       if (displayed.length < titleText.length) {
-        // gyorsabb easeOutIn
         const progress = displayed.length / titleText.length;
         const base = 25; // ms
         const max = 70; // ms
@@ -93,11 +93,11 @@ export default function Problem() {
       }
     }
     return () => clearTimeout(timeout);
-  }, [displayed, typing]);
+  }, [displayed, typing, titleText]);
+
   // --- Cím kurzor villogás ---
   const [showCursor, setShowCursor] = useState(true);
   useEffect(() => {
-    // Csak akkor villogjon a kurzor, ha már elindult a gépelés vagy befejeződött (tehát scroll történt)
     if (!typing && displayed.length > 0) {
       const interval = setInterval(() => setShowCursor((v) => !v), 500);
       return () => clearInterval(interval);
@@ -107,7 +107,7 @@ export default function Problem() {
   }, [typing, displayed.length]);
 
   return (
-    <section ref={sectionRef} className="relative pt-30 pb-16 px-8 flex flex-col items-center bg-background">
+    <section ref={sectionRef} className="relative pt-15 pb-16 px-8 flex flex-col items-center bg-background">
       {/* Cím typewriter + kurzor effekt */}
       <div className="text-center mb-10 flex flex-col items-center justify-center">
         <motion.span
@@ -119,7 +119,6 @@ export default function Problem() {
           ❓
         </motion.span>
         <motion.h2
-          ref={titleRef}
           initial={{ opacity: 0, y: 30 }}
           animate={hasScrolled ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.5, delay: 0.5 }}
