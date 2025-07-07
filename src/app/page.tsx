@@ -23,7 +23,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1.2 }}
             >
-            <Aurora colorStops={["#22d3ee", "#38bdf8", "#a78bfa", "#22d3ee"]} blend={1.0} amplitude={1.0} speed={0.4} />
+            <Aurora colorStops={["#22d3ee", "#38bdf8", "#a78bfa", "#22d3ee"]} blend={1.0} amplitude={2.0} speed={0.8} />
             </motion.div>
           </div>
           <Hero />

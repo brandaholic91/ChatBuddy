@@ -97,32 +97,42 @@ export default function Problem() {
   return (
     <section ref={sectionRef} className="relative pt-30 pb-16 px-8 flex flex-col items-center bg-background">
       {/* Cím typewriter + kurzor effekt */}
-      <h2
-        ref={titleRef}
-        className="text-center mb-10 flex flex-col items-center justify-center"
-        style={{ color: 'black', fontWeight: 600, textAlign: 'center', marginBottom: '0.5rem', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em' }}
-      >
-        {(typing || displayed.length > 0) && (
-          <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom mb-2">❓</span>
-        )}
-        <span style={{ position: 'relative', display: 'inline-block', minHeight: '1.2em' }}>
-          {displayed}
-          {displayed.length > 0 && (
-            <span style={{
-              background: 'linear-gradient(90deg, #a78bfa, #38bdf8)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              display: 'inline-block',
-              marginLeft: 2,
-              opacity: showCursor ? 1 : 0,
-              transition: 'opacity 0.2s',
-              filter: typing ? 'blur(2px)' : 'none',
-            }}>
-              |
-            </span>
-          )}
-        </span>
-      </h2>
+      <div className="text-center mb-10 flex flex-col items-center justify-center">
+        <motion.span
+          initial={{ opacity: 0, y: 30 }}
+          animate={hasScrolled ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.5, delay: 0 }}
+          className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom mb-2"
+        >
+          ❓
+        </motion.span>
+        <motion.h2
+          ref={titleRef}
+          initial={{ opacity: 0, y: 30 }}
+          animate={hasScrolled ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="font-bold"
+          style={{ color: 'black', fontWeight: 600, textAlign: 'center', marginBottom: '0.5rem', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em' }}
+        >
+          <span style={{ position: 'relative', display: 'inline-block', minHeight: '1.2em' }}>
+            {displayed}
+            {displayed.length > 0 && (
+              <span style={{
+                background: 'linear-gradient(90deg, #a78bfa, #38bdf8)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                display: 'inline-block',
+                marginLeft: 2,
+                opacity: showCursor ? 1 : 0,
+                transition: 'opacity 0.2s',
+                filter: typing ? 'blur(2px)' : 'none',
+              }}>
+                |
+              </span>
+            )}
+          </span>
+        </motion.h2>
+      </div>
       <div className="w-full max-w-[800px] mx-auto mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-10 w-full justify-center items-center justify-items-center">
           {/* 1. kártya */}

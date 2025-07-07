@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import Aurora from "./Aurora";
 import { motion } from "framer-motion";
 
 const words = ["Elégedettebb", "Boldogabb", "Hűségesebb"];
@@ -52,10 +51,10 @@ export default function Hero() {
 
   return (
     <section
-      className="relative w-full min-h-[32rem] px-8 overflow-hidden"
+      className="relative w-full min-h-[32rem] px-1 sm:px-2 md:px-4 pt-2 sm:pt-4 md:pt-8 pb-8 sm:pb-12 md:pb-20 overflow-hidden"
     >
       {/* Tartalom középre igazítva */}
-      <div className="relative z-10 max-w-[75rem] mx-auto w-full flex flex-col lg:flex-row items-center justify-center min-h-[32rem] py-12 px-8 gap-12 lg:gap-16 pt-24 sm:pt-32 md:pt-40 lg:pt-40">
+      <div className="relative z-10 max-w-[75rem] mx-auto w-full flex flex-col lg:flex-row items-center justify-center min-h-[32rem] py-6 sm:py-8 md:py-12 px-2 sm:px-4 md:px-8 gap-6 sm:gap-8 md:gap-12 lg:gap-16 pt-12 sm:pt-20 md:pt-32 lg:pt-40">
         {/* Bal oldal: szöveg */}
         <div className="flex-1 flex flex-col items-start justify-center max-w-[40rem] px-0 gap-8 w-full">
           {/* 3 soros főcím typewriter effekttel */}
