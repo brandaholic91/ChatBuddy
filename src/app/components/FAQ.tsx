@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useScroll } from "framer-motion";
 import { FaqAccordion } from "../components/ui/faq-chat-accordion";
 import Magnet from "./ui/Magnet";
+import Image from "next/image";
 
 const faqs = [
   {
@@ -178,9 +179,11 @@ export default function FAQ() {
       </section>
       <div className="w-full flex justify-center">
         <Magnet padding={80} magnetStrength={10}>
-          <img 
-            src="/spaceship.png" 
-            alt="Spaceship" 
+          <Image
+            src="/spaceship.png"
+            alt="Spaceship"
+            width={384}
+            height={384}
             className="w-96 h-96 object-contain animate-float rotate-[20deg]"
             style={{ animation: 'float 3s ease-in-out infinite' }}
           />

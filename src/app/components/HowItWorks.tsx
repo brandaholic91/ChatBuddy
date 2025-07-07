@@ -23,18 +23,32 @@ const steps = [
 ];
 
 export default function HowItWorks() {
-  const cardRefs = [useRef(null), useRef(null), useRef(null)];
+  const cardRef0 = useRef(null);
+  const cardRef1 = useRef(null);
+  const cardRef2 = useRef(null);
+  const cardRefs = [cardRef0, cardRef1, cardRef2];
   // Minden kártyához külön progress
-  const cardsProgress = cardRefs.map(ref => useScroll({ target: ref, offset: ["start 0.8", "end 0.5"] }));
-  const cardRanges = [
-    [0, 0.25],   // 1. kártya: 0% → 25%
-    [0.25, 0.5], // 2. kártya: 25% → 50%
-    [0.5, 0.75], // 3. kártya: 50% → 75%
-  ];
-  const cardsTransforms = cardsProgress.map(({ scrollYProgress }, i) => ({
-    x: useTransform(scrollYProgress, cardRanges[i], [-120, 0]),
-    opacity: useTransform(scrollYProgress, cardRanges[i], [0, 1]),
-  }));
+  const cardProgress0 = useScroll({ target: cardRef0, offset: ["start 0.8", "end 0.5"] });
+  const cardProgress1 = useScroll({ target: cardRef1, offset: ["start 0.8", "end 0.5"] });
+  const cardProgress2 = useScroll({ target: cardRef2, offset: ["start 0.8", "end 0.5"] });
+  const cardsProgress = [cardProgress0, cardProgress1, cardProgress2];
+  const cardRange0 = [0, 0.25];
+  const cardRange1 = [0.25, 0.5];
+  const cardRange2 = [0.5, 0.75];
+  const cardRanges = [cardRange0, cardRange1, cardRange2];
+  const cardTransform0 = {
+    x: useTransform(cardProgress0.scrollYProgress, cardRange0, [-120, 0]),
+    opacity: useTransform(cardProgress0.scrollYProgress, cardRange0, [0, 1]),
+  };
+  const cardTransform1 = {
+    x: useTransform(cardProgress1.scrollYProgress, cardRange1, [-120, 0]),
+    opacity: useTransform(cardProgress1.scrollYProgress, cardRange1, [0, 1]),
+  };
+  const cardTransform2 = {
+    x: useTransform(cardProgress2.scrollYProgress, cardRange2, [-120, 0]),
+    opacity: useTransform(cardProgress2.scrollYProgress, cardRange2, [0, 1]),
+  };
+  const cardsTransforms = [cardTransform0, cardTransform1, cardTransform2];
 
   // --- Typewriter effekt a címhez ---
   const titleText = "3 lépés a teljes automatizálásig";
@@ -150,7 +164,7 @@ export default function HowItWorks() {
                   const first = step.desc.slice(0, endIdx);
                   const rest = step.desc.slice(endIdx).trimStart();
                   return <>
-                    <strong>{first}</strong>{rest ? ' ' + rest : ''}
+                    <strong>{first}</strong>{rest ? ' ' + rest.replace(/"/g, "&quot;") : ''}
                   </>;
                 } else {
                   return <strong>{step.desc}</strong>;

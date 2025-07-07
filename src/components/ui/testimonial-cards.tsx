@@ -2,8 +2,17 @@
 
 import * as React from 'react';
 import { motion } from 'framer-motion';
+import Image from "next/image";
 
-export function TestimonialCard ({ handleShuffle, testimonial, position, id, author }) {
+export interface TestimonialCardProps {
+  handleShuffle: () => void;
+  testimonial: string;
+  position: 'front' | 'middle' | 'back';
+  id: number | string;
+  author: string;
+}
+
+export function TestimonialCard({ handleShuffle, testimonial, position, id, author }: TestimonialCardProps) {
   const dragRef = React.useRef(0);
   const isFront = position === "front";
 
@@ -26,10 +35,12 @@ export function TestimonialCard ({ handleShuffle, testimonial, position, id, aut
         bottom: 0
       }}
       onDragStart={(e) => {
-        dragRef.current = e.clientX;
+        if ('clientX' in e) {
+          dragRef.current = e.clientX;
+        }
       }}
       onDragEnd={(e) => {
-        if (dragRef.current - e.clientX > 150) {
+        if ('clientX' in e && dragRef.current - e.clientX > 150) {
           handleShuffle();
         }
         dragRef.current = 0;
@@ -39,13 +50,15 @@ export function TestimonialCard ({ handleShuffle, testimonial, position, id, aut
         isFront ? "cursor-grab active:cursor-grabbing" : ""
       }`}
     >
-      <img
+      <Image
         src={`https://i.pravatar.cc/128?img=${id}`}
         alt={`Avatar of ${author}`}
+        width={128}
+        height={128}
         className="pointer-events-none mx-auto h-32 w-32 rounded-full border-2 border-slate-700 bg-slate-200 object-cover"
       />
-      <span className="text-center text-lg italic text-slate-400">"{testimonial}"</span>
+      <span className="text-center text-lg italic text-slate-400">&quot;{testimonial}&quot;</span>
       <span className="text-center text-sm font-medium text-indigo-400">{author}</span>
     </motion.div>
   );
-};
+}

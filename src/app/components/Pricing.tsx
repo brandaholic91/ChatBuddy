@@ -107,12 +107,27 @@ export default function Pricing() {
   }, [typing]);
 
   // --- Kártyák scroll fade-in alulról ---
-  const cardRefs = [useRef(null), useRef(null), useRef(null)];
-  const cardsProgress = cardRefs.map(ref => useScroll({ target: ref, offset: ["start 0.8", "end 0.5"] }));
-  const cardsTransforms = cardsProgress.map(({ scrollYProgress }) => ({
-    y: useTransform(scrollYProgress, [0, 1], [80, 0]),
-    opacity: useTransform(scrollYProgress, [0, 1], [0, 1]),
-  }));
+  const cardRef0 = useRef(null);
+  const cardRef1 = useRef(null);
+  const cardRef2 = useRef(null);
+  const cardRefs = [cardRef0, cardRef1, cardRef2];
+  const cardProgress0 = useScroll({ target: cardRef0, offset: ["start 0.8", "end 0.5"] });
+  const cardProgress1 = useScroll({ target: cardRef1, offset: ["start 0.8", "end 0.5"] });
+  const cardProgress2 = useScroll({ target: cardRef2, offset: ["start 0.8", "end 0.5"] });
+  const cardsProgress = [cardProgress0, cardProgress1, cardProgress2];
+  const cardTransform0 = {
+    y: useTransform(cardProgress0.scrollYProgress, [0, 1], [80, 0]),
+    opacity: useTransform(cardProgress0.scrollYProgress, [0, 1], [0, 1]),
+  };
+  const cardTransform1 = {
+    y: useTransform(cardProgress1.scrollYProgress, [0, 1], [80, 0]),
+    opacity: useTransform(cardProgress1.scrollYProgress, [0, 1], [0, 1]),
+  };
+  const cardTransform2 = {
+    y: useTransform(cardProgress2.scrollYProgress, [0, 1], [80, 0]),
+    opacity: useTransform(cardProgress2.scrollYProgress, [0, 1], [0, 1]),
+  };
+  const cardsTransforms = [cardTransform0, cardTransform1, cardTransform2];
 
   // --- Alsó infók és CTA scroll fade-in ---
   const infoRef = useRef(null);

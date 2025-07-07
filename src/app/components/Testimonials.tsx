@@ -82,7 +82,7 @@ export default function Testimonials() {
           <h2
             ref={titleRef}
             className="font-bold text-center text-[#f9fafb]"
-            style={{ fontWeight: 600, textAlign: 'center', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 0, color: '#f9fafb' }}
+            style={{ fontWeight: 600, textAlign: 'center', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 50, color: '#f9fafb' }}
           >
             <span style={{ position: 'relative', display: 'inline-block', minHeight: '1.2em' }}>
               {displayed}
@@ -101,7 +101,7 @@ export default function Testimonials() {
             </span>
           </h2>
         </div>
-        <div className="relative h-[450px] w-[350px] mx-auto mt-10 -ml-[-220px]">
+        <div className="relative h-[450px] w-[350px] mx-auto mt-10 -ml-[-150px]">
           {order.map((idx, i) => (
             <div
               key={testimonials[idx].id}

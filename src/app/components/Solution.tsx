@@ -23,17 +23,32 @@ export default function Solution() {
   const leftOpacity = useTransform(scrollYProgress, [0.12, 0.32], [0, 1]);
 
   // Kártyák: progress lépcsőzetesen, jobbról fade-in
-  const cardProgresses = [
-    [0.18, 0.34],
-    [0.22, 0.38],
-    [0.26, 0.42],
-    [0.30, 0.46],
-    [0.34, 0.50],
-  ];
-  const cardTransforms = cardProgresses.map(([start, end]) => ({
-    x: useTransform(scrollYProgress, [start, end], [200, 0]),
-    opacity: useTransform(scrollYProgress, [start, end], [0, 1]),
-  }));
+  const cardProgress0 = [0.18, 0.60];
+  const cardProgress1 = [0.26, 0.60];
+  const cardProgress2 = [0.34, 0.60];
+  const cardProgress3 = [0.42, 0.60];
+  const cardProgress4 = [0.50, 0.60];
+  const cardTransform0 = {
+    x: useTransform(scrollYProgress, cardProgress0, [200, 0]),
+    opacity: useTransform(scrollYProgress, cardProgress0, [0, 1]),
+  };
+  const cardTransform1 = {
+    x: useTransform(scrollYProgress, cardProgress1, [200, 0]),
+    opacity: useTransform(scrollYProgress, cardProgress1, [0, 1]),
+  };
+  const cardTransform2 = {
+    x: useTransform(scrollYProgress, cardProgress2, [200, 0]),
+    opacity: useTransform(scrollYProgress, cardProgress2, [0, 1]),
+  };
+  const cardTransform3 = {
+    x: useTransform(scrollYProgress, cardProgress3, [200, 0]),
+    opacity: useTransform(scrollYProgress, cardProgress3, [0, 1]),
+  };
+  const cardTransform4 = {
+    x: useTransform(scrollYProgress, cardProgress4, [200, 0]),
+    opacity: useTransform(scrollYProgress, cardProgress4, [0, 1]),
+  };
+  const cardTransforms = [cardTransform0, cardTransform1, cardTransform2, cardTransform3, cardTransform4];
 
   // --- Typewriter effekt a címhez ---
   const titleText = "Nem csak egy chatbot – egy megbízható AI-kolléga";

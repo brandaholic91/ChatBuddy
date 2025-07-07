@@ -39,16 +39,27 @@ export default function Problem() {
   const titleOpacity = hasScrolled ? rawTitleOpacity : 0;
 
   // Kártyák: progress lépcsőzetesen, lentről fade-in
-  const cardProgresses = [
-    [0.18, 0.34],
-    [0.22, 0.38],
-    [0.26, 0.42],
-    [0.30, 0.46],
-  ];
-  const cardTransforms = cardProgresses.map(([start, end]) => ({
-    y: useTransform(scrollYProgress, [start, end], [80, 0]),
-    opacity: useTransform(scrollYProgress, [start, end], [0, 1]),
-  }));
+  const cardProgress0 = [0.18, 0.34];
+  const cardProgress1 = [0.22, 0.38];
+  const cardProgress2 = [0.26, 0.42];
+  const cardProgress3 = [0.30, 0.46];
+  const cardTransform0 = {
+    y: useTransform(scrollYProgress, cardProgress0, [80, 0]),
+    opacity: useTransform(scrollYProgress, cardProgress0, [0, 1]),
+  };
+  const cardTransform1 = {
+    y: useTransform(scrollYProgress, cardProgress1, [80, 0]),
+    opacity: useTransform(scrollYProgress, cardProgress1, [0, 1]),
+  };
+  const cardTransform2 = {
+    y: useTransform(scrollYProgress, cardProgress2, [80, 0]),
+    opacity: useTransform(scrollYProgress, cardProgress2, [0, 1]),
+  };
+  const cardTransform3 = {
+    y: useTransform(scrollYProgress, cardProgress3, [80, 0]),
+    opacity: useTransform(scrollYProgress, cardProgress3, [0, 1]),
+  };
+  const cardTransforms = [cardTransform0, cardTransform1, cardTransform2, cardTransform3];
 
   // --- Typewriter effekt a címhez ---
   const titleText = "Neked is ismerősek ezek a helyzetek?";
