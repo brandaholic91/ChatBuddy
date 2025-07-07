@@ -46,8 +46,8 @@ export function FaqAccordion({
         {data.map((item, idx) => (
           <motion.div
             key={item.id}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.05 * idx }}
             className="mb-2"

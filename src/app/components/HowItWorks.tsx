@@ -6,7 +6,7 @@ const steps = [
     emoji: "🔵",
     number: 1,
     title: "Kapcsolódás",
-    desc: "Webshopodhoz illesztjük 1 nap alatt – fejlesztő nélkül\nShoprenter, WooCommerce vagy egyedi rendszer? A csatlakozás egyszerű, biztonságos és nem igényel IT-csapatot.",
+    desc: "Webshopodhoz illesztjük 1 nap alatt – fejlesztő nélkül\nShoprenter, WooCommerce vagy egyedi rendszer? A csatlakozás egyszerű, biztonságos és nem igényel IT-tudást a részedről.",
   },
   {
     emoji: "🟣",

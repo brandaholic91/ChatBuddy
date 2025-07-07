@@ -173,11 +173,11 @@ export default function Problem() {
               <div className="bg-white border-2 border-[#ececec] rounded-2xl shadow-2xl flex flex-col items-center justify-start w-full h-full p-6 box-border flex flex-col relative z-20">
                 <img
                   src="/pic3.png"
-                  alt="Úgy érzed, hogy rengeteg potenciális vásárlót veszítetek el csak azért, mert nem tudtok időben reagálni a beérkező kérdésekre vagy termékérdeklődésekre?"
+                  alt="Úgy érzed, hogy rengeteg potenciális vásárlót veszítetek el csak azért, mert nem tudtok időben reagálni a beérkező kérdésekre vagy érdeklődésekre?"
                   className="mb-10 block mx-auto rounded-[2rem] w-[220px] h-[220px] object-contain"
                 />
                 <div className="w-full text-center text-gray-800 text-base font-medium px-2">
-                  Úgy érzed, hogy rengeteg potenciális vásárlót veszítetek el csak azért, mert nem tudtok időben reagálni a beérkező kérdésekre vagy termékérdeklődésekre?
+                  Úgy érzed, hogy rengeteg potenciális vásárlót veszítetek el csak azért, mert nem tudtok időben reagálni a beérkező kérdésekre vagy érdeklődésekre?
                 </div>
               </div>
             </motion.div>

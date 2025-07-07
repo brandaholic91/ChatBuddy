@@ -2,12 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
 const solutions = [
+  "Amíg máshol túlóráznak, ChatBuddy ugyanazzal a sebességgel és minőséggel viszi le a legnagyobb rohamot is.",
   "Rendelésállapot, visszaküldés, ajánlatadás vagy follow-up? Bízd ChatBuddy-ra és dőlj hátra!",
   "Messenger, WhatsApp, webchat – mostantól egyetlen, egységes felületen kezelve.",
   "Shoprenter vagy WooCommerce? Plug & play, akár már holnap munkába áll az új AI-kollégád.",
   "ChatBuddy teljesen megfelel a magyar jogi elvárásoknak – SLA és DPA szerződéssel biztosítva.",
   "Minden este kapsz egy átlátható riportot: hány kérdés jött, mit oldott meg a bot, mit hozott a kasszába.",
-  "Amíg máshol túlóráznak, ChatBuddy ugyanazzal a sebességgel és minőséggel viszi le a karácsonyi rohamot is."
 ];
 
 export default function Solution() {

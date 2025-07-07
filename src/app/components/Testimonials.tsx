@@ -6,7 +6,7 @@ import { TestimonialCard } from "./ui/testimonial-cards";
 const testimonials = [
   {
     testimonial:
-      "A ChatBuddy bevezetése után megszűntek a hétvégi túlórák az ügyfélszolgálaton. Most már a legnagyobb leterheltségben is simán kiszolgálunk mindenkit.",
+      "A bevezetés után megszűntek a hétvégi túlórák az ügyfélszolgálaton. Most már a legnagyobb leterheltségben is simán kiszolgálunk mindenkit.",
     author: "Farkas Dóra\noperatív vezető, BabyPlanet.hu",
     id: 1,
   },
