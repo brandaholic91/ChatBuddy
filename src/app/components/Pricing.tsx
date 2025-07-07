@@ -11,36 +11,60 @@ const features = [
 const plans = [
   {
     name: "Start",
-    price: "35 000 Ft",
-    setup: "Egyszeri beállítás: 170 ezer Ft",
+    icon: "🟢",
+    price: "35 000 Ft / hó",
+    setup: "Egyszeri beállítás: 170 000 Ft",
+    description: "Ideális kisebb webshopoknak, akik napi 30–100 rendelést kezelnek, és el akarják kezdeni az automatizálást.",
     features: [
       "Webchat + rendeléskövetés",
-      "GYIK automatikus válaszok",
+      "GYIK automatizálása",
       "24/7 AI ügyfélszolgálat",
-      "Alapvető analytics",
-      "Email támogatás",
+      "Alap riportok",
+      "Email support",
     ],
+    recommendation: "Ajánlott: ha most váltanál először AI-ra",
+    highlight: false,
+  },
+  {
+    name: "Pro",
+    icon: "🔵",
+    price: "89 000 Ft / hó",
+    setup: "Egyszeri beállítás: 390 000 Ft",
+    description: "Komolyabb webshopoknak, akik már több csatornán kommunikálnak, és ügyfélszolgálati tehercsökkentést, plusz bevételt várnak.",
+    features: [
+      "Minden Start funkció",
+      "Messenger integráció",
+      "Follow-up és upsell üzenetek",
+      "Szegmentált ajánlatlogika",
+      "Bővített riportok",
+      "Prioritásos támogatás",
+    ],
+    recommendation: "Ajánlott: ha napi 100–300 rendelést kezelsz",
     highlight: false,
   },
   {
     name: "Full",
-    price: "180 000 Ft",
-    setup: "Egyszeri beállítás: 690 ezer Ft",
+    icon: "🟣",
+    price: "180 000 Ft / hó",
+    setup: "Egyszeri beállítás: 690 000 Ft",
+    description: "Komplex, növekedésorientált webshopoknak, akik már omnichannel jelenlétet és automatizált kampánylogikát akarnak.",
     features: [
       "Minden Pro funkció",
       "WhatsApp integráció",
-      "Kampány workflow",
-      "CRM kapcsolat",
+      "Teljes kampány workflow automatizálás",
+      "CRM integráció",
       "Dedikált account manager",
       "SLA garancia",
+      "Havi stratégiai riport + finomhangolás",
     ],
-    highlight: true,
+    recommendation: "Ajánlott: ha szeretnél teljesen AI-alapú ügykezelést és marketing automatizálást",
+    highlight: false,
   },
 ];
 
 export default function Pricing() {
   // --- Typewriter effekt a címhez ---
-  const titleText = "Mennyibe kerül a megoldás?";
+  const titleText = "Találd meg a számodra legjobb megoldást!";
   const [displayed, setDisplayed] = useState("");
   const [typing, setTyping] = useState(false);
   const titleRef = useRef(null);
@@ -83,7 +107,7 @@ export default function Pricing() {
   }, [typing]);
 
   // --- Kártyák scroll fade-in alulról ---
-  const cardRefs = [useRef(null), useRef(null)];
+  const cardRefs = [useRef(null), useRef(null), useRef(null)];
   const cardsProgress = cardRefs.map(ref => useScroll({ target: ref, offset: ["start 0.8", "end 0.5"] }));
   const cardsTransforms = cardsProgress.map(({ scrollYProgress }) => ({
     y: useTransform(scrollYProgress, [0, 1], [80, 0]),
@@ -103,50 +127,54 @@ export default function Pricing() {
 
   return (
     <section className="relative py-section-y px-section-x flex flex-col items-center">
-      <h2
-        ref={titleRef}
-        className="flex items-center gap-3 font-bold mb-10 text-center justify-center text-[#f9fafb]"
-        style={{ color: '#f9fafb', fontWeight: 600, textAlign: 'center', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 0 }}
-      >
+      <div className="flex flex-col items-center mb-2">
         {(typing || displayed.length > 0) && (
-          <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom">💰</span>
+          <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom mb-2">💰</span>
         )}
-        <span style={{ position: 'relative', display: 'inline-block', minHeight: '1.2em' }}>
-          {displayed}
-          <span style={{
-            background: 'linear-gradient(90deg, #a78bfa, #38bdf8)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            display: 'inline-block',
-            marginLeft: 2,
-            opacity: showCursor ? 1 : 0,
-            transition: 'opacity 0.2s',
-            filter: typing ? 'blur(2px)' : 'none',
-          }}>
-            |
+        <h2
+          ref={titleRef}
+          className="font-bold text-center text-[#f9fafb]"
+          style={{ color: '#f9fafb', fontWeight: 600, textAlign: 'center', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 0 }}
+        >
+          <span style={{ position: 'relative', display: 'inline-block', minHeight: '1.2em' }}>
+            {displayed}
+            <span style={{
+              background: 'linear-gradient(90deg, #a78bfa, #38bdf8)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              display: 'inline-block',
+              marginLeft: 2,
+              opacity: showCursor ? 1 : 0,
+              transition: 'opacity 0.2s',
+              filter: typing ? 'blur(2px)' : 'none',
+            }}>
+              |
+            </span>
           </span>
-        </span>
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl w-full mb-10 mt-10">
+        </h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl w-full mb-10 mt-10">
         {plans.map((plan, i) => (
           <motion.div
             key={i}
             ref={cardRefs[i]}
-            style={{ y: cardsTransforms[i].y, opacity: cardsTransforms[i].opacity }}
-            className={`flex flex-col items-center rounded-3xl p-12 min-h-[520px] relative transition-transform hover:-translate-y-1 hover:shadow-2xl backdrop-blur-2xl bg-[#020617]/90 border border-white/20 shadow-2xl ${plan.highlight ? '' : ''}`}
+            style={{ y: cardsTransforms[i]?.y, opacity: cardsTransforms[i]?.opacity }}
+            className={`flex flex-col items-center rounded-3xl p-12 min-h-[540px] relative transition-transform hover:-translate-y-1 hover:shadow-[0_0_32px_0_rgba(255,255,255,0.25)] backdrop-blur-2xl bg-[#020617]/90 border border-white/20 shadow-2xl`}
           >
-            <div className={`text-xl font-bold mb-2 text-[#f9fafb] ${plan.highlight ? 'text-[#7c3aed]' : 'text-primaryFrom'}`}>{plan.name}</div>
-            <div className="text-4xl font-extrabold text-[#f9fafb] mb-1">{plan.price}</div>
-            <div className="text-[#f9fafb] mb-2">havonta</div>
-            <div className="text-[#f9fafb] text-sm mb-4 font-medium">{plan.setup}</div>
-            <ul className="flex flex-col gap-2 w-full mb-6">
+            <span className="text-4xl mb-2">{plan.icon}</span>
+            <div className="text-xl font-bold mb-1 text-[#f9fafb]">{plan.name}</div>
+            <div className="text-3xl font-extrabold text-[#f9fafb] mb-1">{plan.price}</div>
+            <div className="text-[#f9fafb] mb-2">{plan.setup}</div>
+            <div className="text-[#f9fafb] text-sm mb-4 font-medium text-center">{plan.description}</div>
+            <ul className="flex flex-col gap-2 w-full mb-4">
               {plan.features.map((f, idx) => (
                 <li key={idx} className="flex items-center gap-3 text-[#f9fafb] text-base">
-                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-green-100 text-green-500 text-lg">✓</span>
-                  {f}
+                  <span className="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-green-100 text-green-500 text-lg">✓</span>
+                  <span className="block leading-snug">{f}</span>
                 </li>
               ))}
             </ul>
+            <div className="text-xs text-[#a5b4fc] font-semibold mb-4 mt-6 text-left w-full">🔘 {plan.recommendation}</div>
             <button className="mt-auto w-full bg-[#f9fafb] text-black font-bold rounded-full py-3 px-6 transition-colors duration-200 shadow-lg hover:bg-gradient-to-br hover:from-[#6366f1] hover:to-[#38bdf8] hover:text-white">
               Válaszd ezt a csomagot
             </button>
@@ -159,7 +187,7 @@ export default function Pricing() {
           className="px-6 py-4 rounded-card bg-[#020617]/90 shadow-2xl backdrop-blur-2xl text-[#f9fafb] text-center text-base md:text-lg font-medium"
           style={{ y: infoY, opacity: infoOpacity }}
         >
-          <span className="font-semibold">Nincs rejtett költség.</span> Nincs szerver. Nincs LLM API szükséglet.
+          <span className="font-semibold">Nincs rejtett költség.</span> Nincs tárhelygond. Nincs külön AI-költség.
         </motion.div>
         <motion.div
           ref={ctaRef}
@@ -170,7 +198,7 @@ export default function Pricing() {
             className="cta-animated w-full sm:w-auto button text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-6 relative overflow-hidden"
             style={{ fontWeight: 600 }}
           >
-            Foglalj ingyenes bemutatót! 🎁
+            Foglalj ingyenes bemutatót! 👉
           </button>
         </motion.div>
       </div>

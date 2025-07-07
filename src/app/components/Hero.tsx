@@ -52,7 +52,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative w-full min-h-[32rem] pb-10 px-8 overflow-hidden"
+      className="relative w-full min-h-[32rem] px-8 overflow-hidden"
     >
       {/* Tartalom középre igazítva */}
       <div className="relative z-10 max-w-[75rem] mx-auto w-full flex flex-col lg:flex-row items-center justify-center min-h-[32rem] py-12 px-8 gap-12 lg:gap-16 pt-24 sm:pt-32 md:pt-40 lg:pt-40">
@@ -99,7 +99,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Turbózd fel ügyfélszolgálatod egy AI-kollégával, aki 24/7 válaszol minden vásárlói kérdésre. Csökkenő terhelés, növekvő bevétel, már az első naptól.
+            Turbózd fel az ügyfélszolgálatod egy AI-kollégával, aki 24/7 válaszol minden vásárlói kérdésre. Csökkenő terhelés, növekvő bevétel, már az első naptól.
           </motion.p>
           {/* Gombok */}
           <motion.div
@@ -109,7 +109,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <button className="cta-animated w-full sm:w-auto button text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-6 relative overflow-hidden">
-              Ingyenes 20 perces bemutató foglalása →
+              Ingyenes 20 perces bemutató foglalása 👉
             </button>
           </motion.div>
         </div>

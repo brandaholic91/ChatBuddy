@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useScroll } from "framer-motion";
 import { FaqAccordion } from "../components/ui/faq-chat-accordion";
+import Magnet from "./ui/Magnet";
 
 const faqs = [
   {
@@ -118,38 +119,40 @@ export default function FAQ() {
   return (
     <>
       <section className="relative py-section-y px-section-x flex flex-col items-center">
-        <h2
-          ref={titleRef}
-          className="flex items-center gap-3 font-bold mb-12 text-center justify-center text-[#f9fafb]"
-          style={{
-            color: '#f9fafb',
-            fontWeight: 600,
-            textAlign: 'center',
-            fontSize: 'clamp(2rem, 4vw, 2.8rem)',
-            lineHeight: 1.1,
-            letterSpacing: '-0.03em',
-            marginBottom: 40,
-          }}
-        >
+        <div className="flex flex-col items-center mb-2">
           {(typing || displayed.length > 0) && (
-            <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom">❓</span>
+            <span className="text-3xl md:text-4xl lg:text-5xl text-primaryFrom mb-2">❓</span>
           )}
-          <span style={{ position: 'relative', display: 'inline-block', minHeight: '1.2em' }}>
-            {displayed}
-            <span style={{
-              background: 'linear-gradient(90deg, #a78bfa, #38bdf8)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              display: 'inline-block',
-              marginLeft: 2,
-              opacity: showCursor ? 1 : 0,
-              transition: 'opacity 0.2s',
-              filter: typing ? 'blur(2px)' : 'none',
-            }}>
-              |
+          <h2
+            ref={titleRef}
+            className="font-bold text-center text-[#f9fafb]"
+            style={{
+              color: '#f9fafb',
+              fontWeight: 600,
+              textAlign: 'center',
+              fontSize: 'clamp(2rem, 4vw, 2.8rem)',
+              lineHeight: 1.1,
+              letterSpacing: '-0.03em',
+              marginBottom: 40,
+            }}
+          >
+            <span style={{ position: 'relative', display: 'inline-block', minHeight: '1.2em' }}>
+              {displayed}
+              <span style={{
+                background: 'linear-gradient(90deg, #a78bfa, #38bdf8)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                display: 'inline-block',
+                marginLeft: 2,
+                opacity: showCursor ? 1 : 0,
+                transition: 'opacity 0.2s',
+                filter: typing ? 'blur(2px)' : 'none',
+              }}>
+                |
+              </span>
             </span>
-          </span>
-        </h2>
+          </h2>
+        </div>
         <FaqAccordion data={[
           { id: 1, question: "Valóban magyarul válaszol a ChatBuddy?", answer: "Igen, természetes, hibátlan magyarsággal kommunikál, webshopokra optimalizált AI technológiával." },
           { id: 2, question: "Bonyolult integrálni a Shoprenter webshopunkkal?", answer: "Nem, pár kattintással, programozói tudás nélkül integrálható a Shoprenter vagy WooCommerce áruházadba." },
@@ -171,9 +174,17 @@ export default function FAQ() {
           { id: 18, question: "Miért érdemes pilot projektet indítani?", answer: "Így kockázatmentesen, valós adatokkal mérheted meg, hogyan teljesít a chatbot a te webshopod esetében." },
           { id: 19, question: "Mennyire terheli a ChatBuddy a webshopot?", answer: "Nem okoz semmilyen terhelést, felhő-alapú működése révén nem lassítja a weboldaladat, sőt csökkenti a csapatod terhelését." },
           { id: 20, question: "Hogyan működik a próbaidőszak?", answer: "Az ingyenes, 20 perces bemutató után igényelhetsz egy hónapos próbaidőszakot a Pro csomagra, így meggyőződhetsz a működéséről." },
-        ]} />
+        ]} timestamp="Válaszolt legutóbb: pár másodperce" />
       </section>
-      <div className="w-full flex justify-center mt-4 mb-4">
+      <div className="w-full flex justify-center">
+        <Magnet padding={80} magnetStrength={10}>
+          <img 
+            src="/spaceship.png" 
+            alt="Spaceship" 
+            className="w-96 h-96 object-contain animate-float rotate-[20deg]"
+            style={{ animation: 'float 3s ease-in-out infinite' }}
+          />
+        </Magnet>
       </div>
     </>
   );

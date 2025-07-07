@@ -51,15 +51,6 @@ export default function CTA() {
   return (
     <section className="relative py-section-y px-section-x flex flex-col items-center pb-20">
       <div className="w-full max-w-3xl mx-auto bg-[#020617]/90 rounded-3xl shadow-card px-6 py-12 flex flex-col items-center text-center text-[#f9fafb]">
-        <motion.span
-          className="text-4xl md:text-5xl mb-2"
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.7, delay: 0 }}
-        >
-          🤖
-        </motion.span>
         <motion.h2
           className="font-bold mb-10 text-[#f9fafb]"
           style={{ color: '#f9fafb', fontWeight: 600, textAlign: 'center', fontSize: 'clamp(2rem, 4vw, 2.8rem)', lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 0 }}
@@ -68,7 +59,7 @@ export default function CTA() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
-          Készen állsz automatizálni a legunalmasabb ügyfélszolgálati feladatokat?
+          Készen állsz hatékonyabbá tenni az ügyfélszolgálatod – már holnaptól?
         </motion.h2>
         <motion.div
           className="text-lg mb-8 mt-10 text-[#f9fafb]"
@@ -77,17 +68,22 @@ export default function CTA() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          Foglalj bemutatót most – és legyen a ChatBuddy a legmegbízhatóbb kollégád!
+          Foglalj ingyenes bemutatót most – és legyen ChatBuddy a legmegbízhatóbb kollégád!
         </motion.div>
-        <motion.button
-          className="cta-animated w-full sm:w-auto button text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-6 relative overflow-hidden mb-16 text-[#f9fafb]"
+        <motion.div
+          className="w-full flex justify-center mt-2"
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, delay: 0.45 }}
         >
-          👉 Foglalj bemutatót most – ingyenes próba!
-        </motion.button>
+          <button
+            className="cta-animated w-full sm:w-auto button text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-6 relative overflow-hidden"
+            style={{ fontWeight: 600 }}
+          >
+            Megnézem, mit tud ChatBuddy 👉
+          </button>
+        </motion.div>
       </div>
     </section>
   );

@@ -95,7 +95,7 @@ export default function Problem() {
   }, [typing, displayed.length]);
 
   return (
-    <section ref={sectionRef} className="relative pt-40 pb-16 px-8 flex flex-col items-center bg-background">
+    <section ref={sectionRef} className="relative pt-30 pb-16 px-8 flex flex-col items-center bg-background">
       {/* Cím typewriter + kurzor effekt */}
       <h2
         ref={titleRef}
@@ -126,79 +126,79 @@ export default function Problem() {
       <div className="w-full max-w-[800px] mx-auto mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-10 w-full justify-center items-center justify-items-center">
           {/* 1. kártya */}
-          <div className="flex justify-center w-full min-w-[370px] max-w-[370px] min-h-[500px] max-h-[500px] relative">
-            <GlowingEffect glow={true} spread={60} blur={32} borderWidth={8} disabled={false} className="z-30" variant="white" />
-            <motion.div className="flex flex-col items-center justify-center h-full relative z-40" style={{ y: cardTransforms[0].y, opacity: cardTransforms[0].opacity }}>
-              <TiltedCard
-                imageSrc="/pic1.png"
-                altText="Folyamatosan túl van terhelve az ügyfélszolgálatod a rendelésekkel, visszaküldésekkel és szállítási kérdésekkel kapcsolatos ismétlődő megkeresésektől?"
-                containerHeight="500px"
-                containerWidth="100%"
-                imageHeight="260px"
-                imageWidth="260px"
-                scaleOnHover={1.08}
-                rotateAmplitude={12}
-                showMobileWarning={false}
-                showTooltip={false}
-                captionText="Folyamatosan túl van terhelve az ügyfélszolgálatod a rendelésekkel, visszaküldésekkel és szállítási kérdésekkel kapcsolatos ismétlődő megkeresésektől?"
-              />
+          <div className="relative w-[370px] h-[500px] flex justify-center">
+            <motion.div
+              className="relative z-10 flex flex-col items-center justify-center h-full w-full"
+              style={{ y: cardTransforms[0].y, opacity: cardTransforms[0].opacity }}
+            >
+              <GlowingEffect glow={true} spread={32} blur={12} borderWidth={18} proximity={300} inactiveZone={0} disabled={false} className="z-10" variant="default" />
+              <div className="bg-white border-2 border-[#ececec] rounded-2xl shadow-2xl flex flex-col items-center justify-start w-full h-full p-6 box-border flex flex-col relative z-20">
+                <img
+                  src="/pic1.png"
+                  alt="Folyamatosan túl van terhelve az ügyfélszolgálatod a rendelésekkel, visszaküldésekkel és szállítási kérdésekkel kapcsolatos ismétlődő megkeresésektől?"
+                  className="mb-10 block mx-auto rounded-[2rem] w-[220px] h-[220px] object-contain"
+                />
+                <div className="w-full text-center text-gray-800 text-base font-medium px-2">
+                  Folyamatosan túl van terhelve az ügyfélszolgálatod a rendelésekkel, visszaküldésekkel és szállítási kérdésekkel kapcsolatos ismétlődő megkeresésektől?
+                </div>
+              </div>
             </motion.div>
           </div>
           {/* 2. kártya */}
-          <div className="flex justify-center w-full min-w-[370px] max-w-[370px] min-h-[500px] max-h-[500px] relative">
-            <GlowingEffect glow={true} spread={60} blur={32} borderWidth={8} disabled={false} className="z-30" variant="white" />
-            <motion.div className="flex flex-col items-center justify-center h-full relative z-40" style={{ y: cardTransforms[1].y, opacity: cardTransforms[1].opacity }}>
-              <TiltedCard
-                imageSrc="/pic2.png"
-                altText="Kihívást jelent számotokra, hogy átlássátok a különböző csatornákon – például Messengeren, webchatben vagy e-mailben – beérkező vásárlói kérdéseket egyetlen rendszerben?"
-                containerHeight="500px"
-                containerWidth="100%"
-                imageHeight="260px"
-                imageWidth="260px"
-                scaleOnHover={1.08}
-                rotateAmplitude={12}
-                showMobileWarning={false}
-                showTooltip={false}
-                captionText="Kihívást jelent számotokra, hogy átlássátok a különböző csatornákon – például Messengeren, webchatben vagy e-mailben – beérkező vásárlói kérdéseket egyetlen rendszerben?"
-              />
+          <div className="relative w-[370px] h-[500px] flex justify-center">
+            <motion.div
+              className="relative z-10 flex flex-col items-center justify-center h-full w-full"
+              style={{ y: cardTransforms[1].y, opacity: cardTransforms[1].opacity }}
+            >
+              <GlowingEffect glow={true} spread={32} blur={12} borderWidth={18} proximity={300} inactiveZone={0} disabled={false} className="z-10" variant="default" />
+              <div className="bg-white border-2 border-[#ececec] rounded-2xl shadow-2xl flex flex-col items-center justify-start w-full h-full p-6 box-border flex flex-col relative z-20">
+                <img
+                  src="/pic2.png"
+                  alt="Kihívást jelent számotokra, hogy átlássátok a különböző csatornákon – például Messengeren, webchatben vagy e-mailben – beérkező vásárlói kérdéseket egyetlen rendszerben?"
+                  className="mb-10 block mx-auto rounded-[2rem] w-[220px] h-[220px] object-contain"
+                />
+                <div className="w-full text-center text-gray-800 text-base font-medium px-2">
+                  Kihívást jelent számotokra, hogy átlássátok a különböző csatornákon – például Messengeren, webchatben vagy e-mailben – beérkező vásárlói kérdéseket egyetlen rendszerben?
+                </div>
+              </div>
             </motion.div>
           </div>
           {/* 3. kártya */}
-          <div className="flex justify-center w-full min-w-[370px] max-w-[370px] min-h-[500px] max-h-[500px] relative">
-            <GlowingEffect glow={true} spread={60} blur={32} borderWidth={8} disabled={false} className="z-30" variant="white" />
-            <motion.div className="flex flex-col items-center justify-center h-full relative z-40" style={{ y: cardTransforms[2].y, opacity: cardTransforms[2].opacity }}>
-              <TiltedCard
-                imageSrc="/pic3.png"
-                altText="Úgy érzed, hogy rengeteg potenciális vásárlót veszítetek el csak azért, mert nem tudtok időben reagálni a beérkező kérdésekre vagy termékérdeklődésekre?"
-                containerHeight="500px"
-                containerWidth="100%"
-                imageHeight="260px"
-                imageWidth="260px"
-                scaleOnHover={1.08}
-                rotateAmplitude={12}
-                showMobileWarning={false}
-                showTooltip={false}
-                captionText="Úgy érzed, hogy rengeteg potenciális vásárlót veszítetek el csak azért, mert nem tudtok időben reagálni a beérkező kérdésekre vagy termékérdeklődésekre?"
-              />
+          <div className="relative w-[370px] h-[500px] flex justify-center">
+            <motion.div
+              className="relative z-10 flex flex-col items-center justify-center h-full w-full"
+              style={{ y: cardTransforms[2].y, opacity: cardTransforms[2].opacity }}
+            >
+              <GlowingEffect glow={true} spread={32} blur={12} borderWidth={18} proximity={300} inactiveZone={0} disabled={false} className="z-10" variant="default" />
+              <div className="bg-white border-2 border-[#ececec] rounded-2xl shadow-2xl flex flex-col items-center justify-start w-full h-full p-6 box-border flex flex-col relative z-20">
+                <img
+                  src="/pic3.png"
+                  alt="Úgy érzed, hogy rengeteg potenciális vásárlót veszítetek el csak azért, mert nem tudtok időben reagálni a beérkező kérdésekre vagy termékérdeklődésekre?"
+                  className="mb-10 block mx-auto rounded-[2rem] w-[220px] h-[220px] object-contain"
+                />
+                <div className="w-full text-center text-gray-800 text-base font-medium px-2">
+                  Úgy érzed, hogy rengeteg potenciális vásárlót veszítetek el csak azért, mert nem tudtok időben reagálni a beérkező kérdésekre vagy termékérdeklődésekre?
+                </div>
+              </div>
             </motion.div>
           </div>
           {/* 4. kártya */}
-          <div className="flex justify-center w-full min-w-[370px] max-w-[370px] min-h-[500px] max-h-[500px] relative">
-            <GlowingEffect glow={true} spread={60} blur={32} borderWidth={8} disabled={false} className="z-30" variant="white" />
-            <motion.div className="flex flex-col items-center justify-center h-full relative z-40" style={{ y: cardTransforms[3].y, opacity: cardTransforms[3].opacity }}>
-              <TiltedCard
-                imageSrc="/pic4.png"
-                altText="Hiába tudnátok több vásárlót visszahozni a kosárelhagyásból, nincs elég idő vagy rendszer arra, hogy automatikus utánkövető üzeneteket küldjetek nekik?"
-                containerHeight="500px"
-                containerWidth="100%"
-                imageHeight="260px"
-                imageWidth="260px"
-                scaleOnHover={1.08}
-                rotateAmplitude={12}
-                showMobileWarning={false}
-                showTooltip={false}
-                captionText="Hiába tudnátok több vásárlót visszahozni a kosárelhagyásból, nincs elég idő vagy rendszer arra, hogy automatikus utánkövető üzeneteket küldjetek nekik?"
-              />
+          <div className="relative w-[370px] h-[500px] flex justify-center">
+            <motion.div
+              className="relative z-10 flex flex-col items-center justify-center h-full w-full"
+              style={{ y: cardTransforms[3].y, opacity: cardTransforms[3].opacity }}
+            >
+              <GlowingEffect glow={true} spread={32} blur={12} borderWidth={18} proximity={300} inactiveZone={0} disabled={false} className="z-10" variant="default" />
+              <div className="bg-white border-2 border-[#ececec] rounded-2xl shadow-2xl flex flex-col items-center justify-start w-full h-full p-6 box-border flex flex-col relative z-20">
+                <img
+                  src="/pic4.png"
+                  alt="Hiába tudnátok több vásárlót visszahozni a kosárelhagyásból, nincs elég idő vagy rendszer arra, hogy automatikus utánkövető üzeneteket küldjetek nekik?"
+                  className="mb-10 block mx-auto rounded-[2rem] w-[220px] h-[220px] object-contain"
+                />
+                <div className="w-full text-center text-gray-800 text-base font-medium px-2">
+                  Hiába tudnátok több vásárlót visszahozni a kosárelhagyásból, nincs elég idő vagy rendszer arra, hogy automatikus utánkövető üzeneteket küldjetek nekik?
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>

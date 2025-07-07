@@ -18,7 +18,7 @@ const steps = [
     emoji: "🔺",
     number: 3,
     title: "Indítás & Automatizálás",
-    desc: "A ChatBuddy innentől önállóan dolgozik helyetted\nVálaszol, rendelést kezel, ajánlatot küld, és közben automatikusan riportol – 24/7-ben, hiba nélkül.",
+    desc: "ChatBuddy innentől önállóan dolgozik helyetted\nVálaszol, rendelést kezel, ajánlatot küld, és közben automatikusan riportol – 24/7-ben, hiba nélkül.",
   },
 ];
 
@@ -27,9 +27,9 @@ export default function HowItWorks() {
   // Minden kártyához külön progress
   const cardsProgress = cardRefs.map(ref => useScroll({ target: ref, offset: ["start 0.8", "end 0.5"] }));
   const cardRanges = [
-    [0, 0.33],
-    [0.33, 0.66],
-    [0.66, 1],
+    [0, 0.25],   // 1. kártya: 0% → 25%
+    [0.25, 0.5], // 2. kártya: 25% → 50%
+    [0.5, 0.75], // 3. kártya: 50% → 75%
   ];
   const cardsTransforms = cardsProgress.map(({ scrollYProgress }, i) => ({
     x: useTransform(scrollYProgress, cardRanges[i], [-120, 0]),
@@ -133,7 +133,7 @@ export default function HowItWorks() {
                 const boldSentences = [
                   "Webshopodhoz illesztjük 1 nap alatt – fejlesztő nélkül\n",
                   "Megtanítjuk a chatbotot a te szabályaid szerint\n",
-                  "A ChatBuddy innentől önállóan dolgozik helyetted\n",
+                  "ChatBuddy innentől önállóan dolgozik helyetted\n",
                 ];
                 const found = boldSentences.find(s => step.desc.startsWith(s));
                 if (found) {
@@ -170,7 +170,7 @@ export default function HowItWorks() {
           className="cta-animated w-full sm:w-auto button text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-6 relative overflow-hidden"
           style={{ fontWeight: 600 }}
         >
-          Ingyenes élő demo a saját webshopodon →
+          Foglalj most 20 percet – teljesen ingyen 👉
         </button>
       </motion.div>
     </section>

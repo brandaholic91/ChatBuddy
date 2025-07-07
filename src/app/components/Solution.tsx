@@ -111,18 +111,18 @@ export default function Solution() {
           style={{ x: leftX, opacity: leftOpacity }}
           className="flex justify-center items-center h-full"
         >
-          <div className="w-full max-w-[480px] aspect-[1.1/1] rounded-3xl shadow-2xl flex items-center justify-center overflow-hidden">
+          <div className="w-full max-w-[420px] aspect-square rounded-3xl shadow-2xl flex items-center justify-center overflow-hidden relative">
             <img
               src="/ChatBuddy.png"
               alt="ChatBuddy illusztráció"
               className="w-full h-full object-cover rounded-3xl drop-shadow-2xl"
-              style={{ maxHeight: 420 }}
             />
+            <div className="absolute inset-0 bg-white/30 rounded-3xl pointer-events-none" />
           </div>
         </motion.div>
         {/* Jobb oldal: checklist kártyák animációval, glassmorphic stílussal */}
         <div className="flex flex-col gap-4 w-full max-w-xl mx-auto">
-          {solutions.map((text, i) => (
+            {solutions.map((text, i) => (
             <motion.div
               key={i}
               style={{ x: cardTransforms[Math.min(i, cardTransforms.length-1)].x, opacity: cardTransforms[Math.min(i, cardTransforms.length-1)].opacity }}
@@ -139,7 +139,7 @@ export default function Solution() {
                 </span>
               </div>
             </motion.div>
-          ))}
+            ))}
         </div>
       </div>
     </section>
