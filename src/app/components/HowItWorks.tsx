@@ -125,13 +125,13 @@ export default function HowItWorks() {
         </span>
       </h2>
       {/* Lépések kártyákban */}
-      <div className="flex flex-col md:flex-row gap-8 max-w-5xl w-full justify-center items-center mt-10">
+      <div className="flex flex-col md:flex-row gap-8 w-full max-w-[1020px] justify-center items-center mt-10">
         {steps.map((step, i) => (
           <motion.div
             key={i}
             ref={cardRefs[i]}
             style={{ x: cardsTransforms[i].x, opacity: cardsTransforms[i].opacity }}
-            className="flex-1 flex flex-col items-center rounded-3xl p-8 min-h-[320px] w-full max-w-xs sm:max-w-sm md:w-[340px] relative transition-transform hover:-translate-y-1 hover:shadow-2xl backdrop-blur-xl bg-white/30 border border-white/40 shadow-xl"
+            className="flex flex-col items-center rounded-3xl p-8 min-h-[320px] w-full md:w-[340px] md:h-[380px] relative transition-transform hover:-translate-y-1 hover:shadow-2xl bg-[#f9fafb] border-2 border-[#ececec] shadow-2xl"
           >
             <div className="flex flex-col items-center mb-4">
               <span className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#38bdf8] text-white font-bold text-2xl md:text-3xl shadow-lg mb-2">

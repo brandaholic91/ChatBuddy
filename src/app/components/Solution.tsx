@@ -24,11 +24,11 @@ export default function Solution() {
   const leftOpacity = useTransform(scrollYProgress, [0.12, 0.32], [0, 1]);
 
   // Kártyák: progress lépcsőzetesen, jobbról fade-in
-  const cardProgress0 = [0.18, 0.60];
-  const cardProgress1 = [0.26, 0.60];
-  const cardProgress2 = [0.34, 0.60];
-  const cardProgress3 = [0.42, 0.60];
-  const cardProgress4 = [0.50, 0.60];
+  const cardProgress0 = [0.14, 0.45];
+  const cardProgress1 = [0.195, 0.465];
+  const cardProgress2 = [0.25, 0.48];
+  const cardProgress3 = [0.305, 0.495];
+  const cardProgress4 = [0.36, 0.51];
   const cardTransform0 = {
     x: useTransform(scrollYProgress, cardProgress0, [200, 0]),
     opacity: useTransform(scrollYProgress, cardProgress0, [0, 1]),

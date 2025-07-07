@@ -131,14 +131,7 @@ export default function Pricing() {
 
   // --- Alsó infók és CTA scroll fade-in ---
   const infoRef = useRef(null);
-  const { scrollYProgress: infoScroll } = useScroll({ target: infoRef, offset: ["start 0.85", "end 0.5"] });
-  const infoY = useTransform(infoScroll, [0, 1], [80, 0]);
-  const infoOpacity = useTransform(infoScroll, [0, 1], [0, 1]);
-
   const ctaRef = useRef(null);
-  const { scrollYProgress: ctaScroll } = useScroll({ target: ctaRef, offset: ["start 0.85", "end 0.5"] });
-  const ctaY = useTransform(ctaScroll, [0, 1], [80, 0]);
-  const ctaOpacity = useTransform(ctaScroll, [0, 1], [0, 1]);
 
   return (
     <section className="relative py-section-y px-section-x flex flex-col items-center">
@@ -200,14 +193,12 @@ export default function Pricing() {
         <motion.div
           ref={infoRef}
           className="px-6 py-4 rounded-card bg-[#020617]/90 shadow-2xl backdrop-blur-2xl text-[#f9fafb] text-center text-base md:text-lg font-medium"
-          style={{ y: infoY, opacity: infoOpacity }}
         >
           <span className="font-semibold">Nincs rejtett költség.</span> Nincs tárhelygond. Nincs külön AI-költség.
         </motion.div>
         <motion.div
           ref={ctaRef}
           className="w-full flex justify-center mt-2"
-          style={{ y: ctaY, opacity: ctaOpacity }}
         >
           <button
             className="cta-animated w-full max-w-xs sm:max-w-none sm:w-auto button text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-6 relative overflow-hidden mx-auto"
