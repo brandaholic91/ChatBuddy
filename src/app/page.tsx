@@ -19,6 +19,10 @@ export default function Home() {
   const [amplitude, setAmplitude] = useState(2.0);
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   useEffect(() => {
     const checkMobile = () => {
       if (typeof window !== "undefined" && window.matchMedia('(max-width: 640px)').matches) {
@@ -82,103 +86,105 @@ export default function Home() {
           <CTA />
         </div>
       </div>
-      <BubbleChat
-        chatflowid="78519a52-afd9-4713-9925-7f1d482d5ed0"
-        apiHost="https://flowise-1-jwwt.onrender.com"
-        chatflowConfig={{}}
-        observersConfig={{
-          observeUserInput: () => {},
-          observeLoading: () => {},
-          observeMessages: () => {}
-        }}
-        theme={{
-          button: {
-            backgroundColor: '#3B81F6',
-            right: 20,
-            bottom: 20,
-            size: 48,
-            dragAndDrop: true,
-            iconColor: 'white',
-            customIconSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
-            autoWindowOpen: {
-              autoOpen: false,
-              openDelay: 5,
-              autoOpenOnMobile: false
-            }
-          },
-          tooltip: {
-            showTooltip: false,
-            tooltipMessage: '',
-            tooltipBackgroundColor: '',
-            tooltipTextColor: '',
-            tooltipFontSize: 16
-          },
-          customCSS: `
-            .flowise-footer {
-              display: none !important;
-            }
-          `,
-          chatWindow: {
-            showTitle: true,
-            showAgentMessages: true,
-            title: 'ChatBuddy',
-            titleAvatarSrc: '/ChatBuddy-logo-fej-hatterrel.svg',
-            welcomeMessage: 'Kérdésed van a működésről vagy a megtérülésről? Segítek.',
-            errorMessage: 'Egy hiba történt. Kérlek próbáld újra.',
-            backgroundColor: '#f9fafb',
-            backgroundImage: 'enter image path or link',
-            height: 700,
-            width: 400,
-            fontSize: 16,
-            starterPrompts: [
-              "💬 Miben tudsz segíteni?",
-              "🧮 Mennyit spórolhatok veled havonta?"
-            ],
-            starterPromptFontSize: 15,
-            clearChatOnReload: false,
-            sourceDocsTitle: 'Sources:',
-            renderHTML: true,
-            botMessage: {
-              backgroundColor: '#f1f2f5',
-              textColor: '#303235',
-              showAvatar: true,
-              avatarSrc: '/ChatBuddy-logo-fej-hatterrel.png'
-            },
-            userMessage: {
+      {isClient && (
+        <BubbleChat
+          chatflowid="78519a52-afd9-4713-9925-7f1d482d5ed0"
+          apiHost="https://flowise-1-jwwt.onrender.com"
+          chatflowConfig={{}}
+          observersConfig={{
+            observeUserInput: () => {},
+            observeLoading: () => {},
+            observeMessages: () => {}
+          }}
+          theme={{
+            button: {
               backgroundColor: '#3B81F6',
-              textColor: '#f9fafb',
-              showAvatar: true,
-              avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png'
+              right: 20,
+              bottom: 20,
+              size: 48,
+              dragAndDrop: true,
+              iconColor: 'white',
+              customIconSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
+              autoWindowOpen: {
+                autoOpen: false,
+                openDelay: 5,
+                autoOpenOnMobile: false
+              }
             },
-            textInput: {
-              placeholder: 'Segíthetek? Kérdezz bátran!',
+            tooltip: {
+              showTooltip: false,
+              tooltipMessage: '',
+              tooltipBackgroundColor: '',
+              tooltipTextColor: '',
+              tooltipFontSize: 16
+            },
+            customCSS: `
+              .flowise-footer {
+                display: none !important;
+              }
+            `,
+            chatWindow: {
+              showTitle: true,
+              showAgentMessages: true,
+              title: 'ChatBuddy',
+              titleAvatarSrc: '/ChatBuddy-logo-fej-hatterrel.svg',
+              welcomeMessage: 'Kérdésed van a működésről vagy a megtérülésről? Segítek.',
+              errorMessage: 'Egy hiba történt. Kérlek próbáld újra.',
               backgroundColor: '#f9fafb',
-              textColor: '#303235',
-              sendButtonColor: '#3B81F6',
-              maxChars: 50,
-              maxCharsWarningMessage: 'Túl sok karakter. Kérlek adj meg 50 karakternél kevesebbet.',
-              autoFocus: true,
-              sendMessageSound: true,
-              sendSoundLocation: 'send_message.mp3',
-              receiveMessageSound: true,
-              receiveSoundLocation: 'receive_message.mp3'
-            },
-            feedback: {
-              color: '#303235'
-            },
-            dateTimeToggle: {
-              date: true,
-              time: true
-            },
-            footer: {
-              textColor: '#303235',
-              text: '',
-              company: '',
-              companyLink: ''
+              backgroundImage: 'enter image path or link',
+              height: 700,
+              width: 400,
+              fontSize: 16,
+              starterPrompts: [
+                "💬 Miben tudsz segíteni?",
+                "🧮 Mennyit spórolhatok veled havonta?"
+              ],
+              starterPromptFontSize: 15,
+              clearChatOnReload: false,
+              sourceDocsTitle: 'Sources:',
+              renderHTML: true,
+              botMessage: {
+                backgroundColor: '#f1f2f5',
+                textColor: '#303235',
+                showAvatar: true,
+                avatarSrc: '/ChatBuddy-logo-fej-hatterrel.png'
+              },
+              userMessage: {
+                backgroundColor: '#3B81F6',
+                textColor: '#f9fafb',
+                showAvatar: true,
+                avatarSrc: 'https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png'
+              },
+              textInput: {
+                placeholder: 'Segíthetek? Kérdezz bátran!',
+                backgroundColor: '#f9fafb',
+                textColor: '#303235',
+                sendButtonColor: '#3B81F6',
+                maxChars: 50,
+                maxCharsWarningMessage: 'Túl sok karakter. Kérlek adj meg 50 karakternél kevesebbet.',
+                autoFocus: true,
+                sendMessageSound: true,
+                sendSoundLocation: 'send_message.mp3',
+                receiveMessageSound: true,
+                receiveSoundLocation: 'receive_message.mp3'
+              },
+              feedback: {
+                color: '#303235'
+              },
+              dateTimeToggle: {
+                date: true,
+                time: true
+              },
+              footer: {
+                textColor: '#303235',
+                text: '',
+                company: '',
+                companyLink: ''
+              }
             }
-          }
-        }}
-      />
+          }}
+        />
+      )}
       <ScrollTooltip />
     </>
   );
