@@ -14,11 +14,11 @@ export default function ROICalculatorAccordion() {
   // Kosárelhagyás blokk
   const [dailyAbandoned, setDailyAbandoned] = useState(0);
   const [avgCartValue, setAvgCartValue] = useState(0);
-  const [recoverRate, setRecoverRate] = useState(0);
+  const [recoverRate, setRecoverRate] = useState(7);
 
   // Upsell blokk
   const [monthlyBuyers, setMonthlyBuyers] = useState(0);
-  const [upsellValue, setUpsellValue] = useState(0);
+  const [upsellValue, setUpsellValue] = useState(1500);
   const [upsellRate, setUpsellRate] = useState(10);
 
   // Számítások
@@ -64,7 +64,7 @@ export default function ROICalculatorAccordion() {
               <span>Kolléga órabére<br /> (Ft)</span>
               <span className="font-bold text-white">{hourlyWage}</span>
             </label>
-            <input type="range" min={0} max={5000} step={100} value={hourlyWage} onChange={e => setHourlyWage(Number(e.target.value))} style={sliderStyle} className="roi-slider" />
+            <input type="range" min={0} max={10000} step={100} value={hourlyWage} onChange={e => setHourlyWage(Number(e.target.value))} style={sliderStyle} className="roi-slider" />
           </div>
           <div className="mt-4 bg-[#f1f5f9] rounded-lg px-4 py-3 text-[#0f172a] text-base font-semibold">
             <div>Havi megtakarítás:<br /> <span className="font-bold">{formatFt(Math.round(savedWagePerMonth))}</span></div>
@@ -74,7 +74,7 @@ export default function ROICalculatorAccordion() {
     },
     {
       id: 2,
-      question: "Visszaszerzett bevétel (kosárelhagyás)",
+      question: "Mentett bevétel (kosárelhagyásból)",
       answer: (
         <div>
           <div className="flex flex-col gap-4 mb-2">
@@ -84,7 +84,7 @@ export default function ROICalculatorAccordion() {
               </span>
               <span className="font-bold text-white">{dailyAbandoned}</span>
             </label>
-            <input type="range" min={0} max={30} value={dailyAbandoned} onChange={e => setDailyAbandoned(Number(e.target.value))} style={sliderStyle} className="roi-slider" />
+            <input type="range" min={0} max={1000} value={dailyAbandoned} onChange={e => setDailyAbandoned(Number(e.target.value))} style={sliderStyle} className="roi-slider" />
             <label style={labelStyle}>
               <span>
                 Átlagos<br />
@@ -92,7 +92,7 @@ export default function ROICalculatorAccordion() {
               </span>
               <span className="font-bold text-white">{avgCartValue}</span>
             </label>
-            <input type="range" min={0} max={30000} step={500} value={avgCartValue} onChange={e => setAvgCartValue(Number(e.target.value))} style={sliderStyle} className="roi-slider" />
+            <input type="range" min={0} max={100000} step={500} value={avgCartValue} onChange={e => setAvgCartValue(Number(e.target.value))} style={sliderStyle} className="roi-slider" />
             <label style={labelStyle}>
               <span>Visszahozási arány (%)</span>
               <span className="font-bold text-white">{recoverRate}%</span>

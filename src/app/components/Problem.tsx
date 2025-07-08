@@ -109,7 +109,7 @@ export default function Problem() {
   return (
     <section ref={sectionRef} className="relative pt-15 pb-16 px-8 flex flex-col items-center bg-background">
       {/* Cím typewriter + kurzor effekt */}
-      <div className="text-center mb-10 flex flex-col items-center justify-center">
+      <div className="text-center flex flex-col items-center justify-center">
         <motion.span
           initial={{ opacity: 0, y: 30 }}
           animate={hasScrolled ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}

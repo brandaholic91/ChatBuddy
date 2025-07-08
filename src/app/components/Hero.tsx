@@ -62,7 +62,7 @@ export default function Hero() {
           {/* 3 soros főcím typewriter effekttel */}
           <motion.h1
             className="w-full break-words text-5xl sm:text-5xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-bodyText max-w-[90vw] max-w-[400px] sm:max-w-none"
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: -60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
@@ -96,7 +96,7 @@ export default function Hero() {
           {/* Alcím */}
           <motion.p
             className="w-full text-base sm:text-lg md:text-xl text-subtleText leading-relaxed"
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: -60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
@@ -105,7 +105,7 @@ export default function Hero() {
           {/* Gombok */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: -60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
@@ -117,7 +117,7 @@ export default function Hero() {
         {/* Jobb oldal: új chat UI mockup helyett kép */}
         <motion.div
           className="flex-1 flex items-center justify-center w-full mt-8 lg:mt-0"
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: -60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
@@ -129,7 +129,6 @@ export default function Hero() {
             height={400}
             className="max-w-[90vw] w-[260px] sm:w-[300px] md:w-[320px] lg:w-[340px] xl:w-[360px] mx-auto cursor-pointer"
             style={{
-              filter: 'drop-shadow(0 16px 64px rgba(56,189,248,0.45))',
               transform: `perspective(900px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
               transition: 'transform 0.25s cubic-bezier(.22,1,.36,1)',
             }}

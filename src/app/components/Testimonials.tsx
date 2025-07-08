@@ -105,7 +105,7 @@ export default function Testimonials() {
           {order.map((idx, i) => (
             <div
               key={testimonials[idx].id}
-              className="absolute left-0 top-0"
+              className="absolute left-0 top-0 lg:-ml-8 xl:-ml-16"
             >
               <TestimonialCard
                 handleShuffle={handleShuffle}

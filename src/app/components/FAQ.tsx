@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const faqs = [
   {
-    q: "Valóban magyarul válaszol a ChatBuddy?",
+    q: "Valóban magyarul válaszol ChatBuddy?",
     a: "Igen, természetes, hibátlan magyarsággal kommunikál, webshopokra optimalizált AI technológiával.",
   },
   {
@@ -16,7 +16,7 @@ const faqs = [
     a: "Nem, pár kattintással, programozói tudás nélkül integrálható Shoprenter vagy WooCommerce áruházadba.",
   },
   {
-    q: "Milyen csatornákon tud segíteni a ChatBuddy?",
+    q: "Milyen csatornákon tud segíteni?",
     a: "Webchat, Messenger, WhatsApp és Instagram DM – mindenhol ott van, ahol a vásárlóid.",
   },
   {
@@ -36,7 +36,7 @@ const faqs = [
     a: "Az összes adatot EU-s szervereken tároljuk, szigorú GDPR-kompatibilis biztonsági előírások mellett.",
   },
   {
-    q: "Hogyan mérhető a ChatBuddy eredményessége?",
+    q: "Hogyan mérhető az eredményesség?",
     a: "Beépített analitikánk pontosan megmutatja, mennyi ügyfélinterakció zajlik, és hogyan javulnak a KPI-k.",
   },
   {
@@ -48,11 +48,11 @@ const faqs = [
     a: "Igen, egyszeri setup díj van (170 000–690 000 Ft között), csomagtól függően. Ez tartalmazza az integrációt és testreszabást.",
   },
   {
-    q: "Milyen típusú webshopoknak ideális a ChatBuddy?",
+    q: "Milyen típusú webshopoknak ideális ChatBuddy?",
     a: "Elsősorban napi 30–500 rendelést kezelő webshopoknak, amelyek több kommunikációs csatornán működnek, és túlterhelt ügyfélszolgálattal rendelkeznek.",
   },
   {
-    q: "Hogyan segít a ChatBuddy növelni a bevételt?",
+    q: "Hogyan segít ChatBuddy növelni a bevételt?",
     a: "Proaktív üzenetekkel, személyre szabott ajánlatokkal és azonnali válaszokkal segít kosárelhagyás csökkentésében és az upsellben.",
   },
   {
@@ -68,8 +68,8 @@ const faqs = [
     a: "Teljesen biztonságos, titkosított kommunikációt és adatvédelmi auditokat alkalmazunk a legmagasabb GDPR szabvány szerint.",
   },
   {
-    q: "Hogyan működik a próbaidőszak?",
-    a: "Az ingyenes, 20 perces bemutató után igényelhetsz egy hónapos próbaidőszakot a Pro csomagra, így meggyőződhetsz a működéséről.",
+    q: "Mit jelent az, hogy ChatBuddy önállóan kezel ügyeket?",
+    a: "ChatBuddy nemcsak GYIK-re válaszol, hanem képes teljes ügyintézési folyamatokat is elvégezni – például megnézi a rendelés állapotát, elindítja a visszaküldést, ajánlatot küld vagy kampányüzenetet továbbít. Mindezt emberi beavatkozás nélkül, több csatornán egyszerre..",
   },
 ];
 
@@ -155,26 +155,26 @@ export default function FAQ() {
           </h2>
         </div>
         <FaqAccordion data={[
-          { id: 1, question: "Valóban magyarul válaszol a ChatBuddy?", answer: "Igen, természetes, hibátlan magyarsággal kommunikál, webshopokra optimalizált AI technológiával." },
+          { id: 1, question: "Valóban magyarul válaszol ChatBuddy?", answer: "Igen, természetes, hibátlan magyarsággal kommunikál, webshopokra optimalizált AI technológiával." },
           { id: 2, question: "Bonyolult integrálni a Shoprenter webshopunkkal?", answer: "Nem, pár kattintással, programozói tudás nélkül integrálható a Shoprenter vagy WooCommerce áruházadba." },
-          { id: 3, question: "Milyen csatornákon tud segíteni a ChatBuddy?", answer: "Webchat, Messenger, WhatsApp és Instagram DM – mindenhol ott van, ahol a vásárlóid." },
+          { id: 3, question: "Milyen csatornákon tud segíteni?", answer: "Webchat, Messenger, WhatsApp és Instagram DM – mindenhol ott van, ahol a vásárlóid." },
           { id: 4, question: "Tényleg képes rendelési ügyeket intézni?", answer: "Igen, lekérdezi a rendelés állapotát, kezeli a visszaküldéseket és segít a vásárlóknak az ajánlatkérésben is." },
           { id: 5, question: "Mennyi idő alatt lesz éles a rendszer?", answer: "Általában 3-4 hét alatt már élesben használhatod, de akár 1 nap alatt is integrálható egy pilot teszthez." },
           { id: 6, question: "Mi történik, ha a chatbot nem tud válaszolni?", answer: "Ilyenkor automatikusan élő ügyfélszolgálati kollégához irányítja a vásárlót, így nincs negatív élmény." },
           { id: 7, question: "Hogyan garantáljátok a GDPR-megfelelést?", answer: "Az összes adatot EU-s szervereken tároljuk, szigorú GDPR-kompatibilis biztonsági előírások mellett." },
-          { id: 8, question: "Hogyan mérhető a ChatBuddy eredményessége?", answer: "Beépített analitikánk pontosan megmutatja, mennyi ügyfélinterakció zajlik, és hogyan javulnak a KPI-k." },
+          { id: 8, question: "Hogyan mérhető az eredményessége?", answer: "Beépített analitikánk pontosan megmutatja, mennyi ügyfélinterakció zajlik, és hogyan javulnak a KPI-k." },
           { id: 9, question: "Mi a teendő, ha bővülni szeretnénk több csatornára?", answer: "Egyszerűen válthatsz magasabb csomagra, vagy kérhetsz egyedi megoldást – könnyen skálázható a szolgáltatás." },
           { id: 10, question: "Van-e egyszeri beállítási díj?", answer: "Igen, egyszeri setup díj van (170 000–690 000 Ft között), csomagtól függően. Ez tartalmazza az integrációt és testreszabást." },
-          { id: 11, question: "Milyen típusú webshopoknak ideális a ChatBuddy?", answer: "Elsősorban napi 30–500 rendelést kezelő webshopoknak, amelyek több kommunikációs csatornán működnek, és túlterhelt ügyfélszolgálattal rendelkeznek." },
-          { id: 12, question: "Hogyan segít a ChatBuddy növelni a bevételt?", answer: "Proaktív üzenetekkel, személyre szabott ajánlatokkal és azonnali válaszokkal segít kosárelhagyás csökkentésében és az upsellben." },
+          { id: 11, question: "Milyen típusú webshopoknak ideális ChatBuddy?", answer: "Elsősorban napi 30–500 rendelést kezelő webshopoknak, amelyek több kommunikációs csatornán működnek, és túlterhelt ügyfélszolgálattal rendelkeznek." },
+          { id: 12, question: "Hogyan segít ChatBuddy növelni a bevételt?", answer: "Proaktív üzenetekkel, személyre szabott ajánlatokkal és azonnali válaszokkal segít kosárelhagyás csökkentésében és az upsellben." },
           { id: 13, question: "Mi történik, ha technikai probléma adódik?", answer: "Dedikált magyar nyelvű supportot nyújtunk, gyors reagálással, és SLA-garanciával a folyamatos működésre." },
           { id: 14, question: "Kell-e saját szervert üzemeltetnünk a chatbothoz?", answer: "Nem, mindent mi biztosítunk felhő-alapú infrastruktúrán, neked nem kell semmilyen technikai infrastruktúrával foglalkoznod." },
           { id: 15, question: "Mennyire biztonságos az adatok kezelése?", answer: "Teljesen biztonságos, titkosított kommunikációt és adatvédelmi auditokat alkalmazunk a legmagasabb GDPR szabvány szerint." },
-          { id: 16, question: "Mi a különbség a ti chatbototok és egy FAQ-bot között?", answer: "A ChatBuddy önálló ügyintézést végez: rendelést ellenőriz, visszaküldést indít, ajánlatokat generál, tehát jóval többet nyújt egy FAQ-botnál." },
+          { id: 16, question: "Mi a különbség a ti chatbototok és egy FAQ-bot között?", answer: "ChatBuddy önálló ügyintézést végez: rendelést ellenőriz, visszaküldést indít, ajánlatokat generál, tehát jóval többet nyújt egy FAQ-botnál." },
           { id: 17, question: "Mennyire kell technikai tudás a chatbot kezeléséhez?", answer: "Semmilyen programozási tudás nem szükséges, marketingesek vagy ügyfélszolgálatosok könnyedén kezelhetik." },
           { id: 18, question: "Miért érdemes pilot projektet indítani?", answer: "Így kockázatmentesen, valós adatokkal mérheted meg, hogyan teljesít a chatbot a te webshopod esetében." },
-          { id: 19, question: "Mennyire terheli a ChatBuddy a webshopot?", answer: "Nem okoz semmilyen terhelést, felhő-alapú működése révén nem lassítja a weboldaladat, sőt csökkenti a csapatod terhelését." },
-          { id: 20, question: "Hogyan működik a próbaidőszak?", answer: "Az ingyenes, 20 perces bemutató után igényelhetsz egy hónapos próbaidőszakot a Pro csomagra, így meggyőződhetsz a működéséről." },
+          { id: 19, question: "Mennyire terheli ChatBuddy a webshopot?", answer: "Nem okoz semmilyen terhelést, felhő-alapú működése révén nem lassítja a weboldaladat, sőt csökkenti a csapatod terhelését." },
+          { id: 20, question: "Mit jelent az, hogy ChatBuddy önállóan kezel ügyeket?", answer: "ChatBuddy nemcsak GYIK-re válaszol, hanem képes teljes ügyintézési folyamatokat is elvégezni – például megnézi a rendelés állapotát, elindítja a visszaküldést, ajánlatot küld vagy kampányüzenetet továbbít. Mindezt emberi beavatkozás nélkül, több csatornán egyszerre." },
         ]} timestamp="Válaszolt legutóbb: pár másodperce" />
       </section>
       <div className="w-full flex justify-center">

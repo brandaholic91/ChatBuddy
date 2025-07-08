@@ -59,7 +59,7 @@ export default function Loader({ fadeOut }: LoaderProps) {
           textAlign: 'center',
           border: '2px solid #a78bfa',
           opacity: showBubble ? 1 : 0,
-          transition: 'opacity 1s',
+          transition: 'opacity 2s',
         }}>
           Szia, miben segíthetek?
           <span style={{
