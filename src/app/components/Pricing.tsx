@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useScroll, useTransform } from "framer-motion";
 import { motion } from "framer-motion";
+import Modal from "./ui/Modal";
+import ROICalculatorAccordion from "./ROICalculatorAccordion";
 
 const features = [
   "Teljes körű omnichannel AI chatbot",
@@ -10,7 +12,7 @@ const features = [
 ];
 const plans = [
   {
-    name: "Start",
+    name: "AI Start",
     icon: "🟢",
     price: "35 000 Ft / hó",
     setup: "Egyszeri beállítás: 170 000 Ft",
@@ -26,7 +28,7 @@ const plans = [
     highlight: false,
   },
   {
-    name: "Pro",
+    name: "AI Growth",
     icon: "🔵",
     price: "89 000 Ft / hó",
     setup: "Egyszeri beállítás: 390 000 Ft",
@@ -43,7 +45,7 @@ const plans = [
     highlight: false,
   },
   {
-    name: "Full",
+    name: "AI Mastery",
     icon: "🟣",
     price: "180 000 Ft / hó",
     setup: "Egyszeri beállítás: 690 000 Ft",
@@ -133,6 +135,8 @@ export default function Pricing() {
   const infoRef = useRef(null);
   const ctaRef = useRef(null);
 
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <section className="relative py-section-y px-section-x flex flex-col items-center">
       <div className="flex flex-col items-center mb-2">
@@ -182,7 +186,7 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <div className="text-xs text-[#a5b4fc] font-semibold mb-4 mt-6 text-left w-full">🔘 {plan.recommendation}</div>
+            <div className="text-xs text-[#a78bfa] font-semibold mb-4 mt-6 text-left w-full">🔘 {plan.recommendation}</div>
             <button className="mt-auto w-full bg-[#f9fafb] text-black font-bold rounded-full py-3 px-6 transition-colors duration-200 shadow-lg hover:bg-gradient-to-br hover:from-[#6366f1] hover:to-[#38bdf8] hover:text-white">
               Válaszd ezt a csomagot
             </button>
@@ -198,13 +202,79 @@ export default function Pricing() {
         </motion.div>
         <motion.div
           ref={ctaRef}
-          className="w-full flex justify-center mt-2"
+          className="w-full flex justify-center mt-2 relative"
         >
+          {modalOpen && (
+            <div
+              style={{
+                position: 'absolute',
+                bottom: '110%',
+                left: '50%',
+                zIndex: 20,
+                transform: 'translateX(-50%)',
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <div
+                style={{
+                  background: '#fff',
+                  borderRadius: 24,
+                  boxShadow: '0 8px 40px #02061733',
+                  minWidth: 320,
+                  maxWidth: 420,
+                  width: '90vw',
+                  padding: '2.5rem 2rem 2rem 2rem',
+                  fontFamily: "'TT Firs Neue', 'Inter', sans-serif",
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 20,
+                  color: '#020617',
+                  fontWeight: 600,
+                  animation: 'modalIn 0.35s cubic-bezier(.4,2,.6,1)',
+                  position: 'relative',
+                }}
+              >
+                <button
+                  onClick={() => setModalOpen(false)}
+                  style={{
+                    position: 'absolute',
+                    top: 18,
+                    right: 18,
+                    background: 'none',
+                    border: 'none',
+                    fontSize: 26,
+                    color: '#a78bfa',
+                    cursor: 'pointer',
+                    fontWeight: 700,
+                    lineHeight: 1,
+                    padding: 0,
+                    transition: 'color 0.2s',
+                  }}
+                  aria-label="Bezárás"
+                >
+                  ×
+                </button>
+                <div style={{ width: '100%' }}>
+                  <ROICalculatorAccordion />
+                </div>
+                <style>{`
+                  @keyframes modalIn {
+                    0% { opacity: 0; transform: translateY(40px) scale(0.98); }
+                    100% { opacity: 1; transform: translateY(0) scale(1); }
+                  }
+                `}</style>
+              </div>
+            </div>
+          )}
           <button
             className="cta-animated w-full max-w-xs sm:max-w-none sm:w-auto button text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-6 relative overflow-hidden mx-auto"
             style={{ fontWeight: 600 }}
+            onClick={() => setModalOpen((v) => !v)}
           >
-            Foglalj ingyenes bemutatót! 👉
+            Számold ki, mennyit spórolna és kerese neked ChatBuddy 
           </button>
         </motion.div>
       </div>

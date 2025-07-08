@@ -9,11 +9,14 @@ import Testimonials from "./components/Testimonials";
 import Pricing from "./components/Pricing";
 import FAQ from "./components/FAQ";
 import CTA from "./components/CTA";
+import Loader from "./components/Loader";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [amplitude, setAmplitude] = useState(2.0);
+  const [loading, setLoading] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
   useEffect(() => {
     const checkMobile = () => {
       if (window.matchMedia('(max-width: 640px)').matches) {
@@ -24,8 +27,22 @@ export default function Home() {
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    // Loader timer
+    const timer = setTimeout(() => setFadeOut(true), 2000);
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      clearTimeout(timer);
+    };
   }, []);
+
+  useEffect(() => {
+    if (fadeOut) {
+      const fadeTimer = setTimeout(() => setLoading(false), 800);
+      return () => clearTimeout(fadeTimer);
+    }
+  }, [fadeOut]);
+
+  if (loading) return <Loader fadeOut={fadeOut} />;
 
   return (
     <>
@@ -44,7 +61,7 @@ export default function Home() {
           <Hero />
         </div>
         <Problem />
-        <div className="flex flex-col items-center w-full min-h-screen bg-transparent px-4 md:px-12 xl:px-32 2xl:px-64 py-12 md:py-20">
+        <div className="flex flex-col items-center w-full bg-transparent px-4 md:px-12 xl:px-32 2xl:px-64 py-12 md:py-20">
           <div className="w-full max-w-7xl flex flex-col gap-24 md:gap-32 xl:gap-40">
             <Solution />
             <HowItWorks />

@@ -59,7 +59,7 @@ export default function CTA() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, delay: 0.15 }}
         >
-          Készen állsz hatékonyabbá tenni az ügyfélszolgálatod – már holnaptól?
+          Készen állsz hatékonyabbá tenni az ügyfélszolgálatod – akár már holnaptól?
         </motion.h2>
         <motion.div
           className="text-lg mb-8 mt-10 text-[#f9fafb]"

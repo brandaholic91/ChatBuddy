@@ -271,3 +271,50 @@ a {
     @apply bg-background text-foreground;
   }
 }
+
+/* ROI kalkulátor slider thumb szürke (#64748b) */
+input[type="range"].roi-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #64748b;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px #0003;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+input[type="range"].roi-slider:focus::-webkit-slider-thumb {
+  outline: 2px solid #6366f1;
+}
+input[type="range"].roi-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #64748b;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px #0003;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+input[type="range"].roi-slider:focus::-moz-range-thumb {
+  outline: 2px solid #6366f1;
+}
+input[type="range"].roi-slider::-ms-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #64748b;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px #0003;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+input[type="range"].roi-slider:focus::-ms-thumb {
+  outline: 2px solid #6366f1;
+}
+
+input[type="range"].roi-slider {
+  accent-color: #64748b;
+}
