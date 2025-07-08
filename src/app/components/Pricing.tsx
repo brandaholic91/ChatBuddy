@@ -274,7 +274,7 @@ export default function Pricing() {
             style={{ fontWeight: 600 }}
             onClick={() => setModalOpen((v) => !v)}
           >
-            Számold ki, mennyit spórolna és kerese neked ChatBuddy 
+            Számold ki, mennyit spórolna neked ChatBuddy 
           </button>
         </motion.div>
       </div>
