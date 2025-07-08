@@ -12,6 +12,7 @@ export default function ScrollTooltip() {
     }, 3000);
 
     const handleScroll = () => {
+      if (typeof window === "undefined" || typeof document === "undefined") return;
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
@@ -21,9 +22,13 @@ export default function ScrollTooltip() {
         window.removeEventListener("scroll", handleScroll);
       }
     };
-    window.addEventListener("scroll", handleScroll);
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+    }
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("scroll", handleScroll);
+      }
       clearTimeout(timer);
     };
   }, []);

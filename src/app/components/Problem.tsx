@@ -29,10 +29,16 @@ export default function Problem() {
   const [hasScrolled, setHasScrolled] = useState(false);
   useEffect(() => {
     const onScroll = () => {
-      if (window.scrollY > 0 && !hasScrolled) setHasScrolled(true);
+      if (typeof window !== "undefined" && window.scrollY > 0 && !hasScrolled) setHasScrolled(true);
     };
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    if (typeof window !== "undefined") {
+      window.addEventListener('scroll', onScroll);
+    }
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener('scroll', onScroll);
+      }
+    };
   }, [hasScrolled]);
 
   // Cím animáció: progress 0.05-0.25 között fade-in alulról, csak scrollra

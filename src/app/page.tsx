@@ -21,18 +21,22 @@ export default function Home() {
   const [fadeOut, setFadeOut] = useState(false);
   useEffect(() => {
     const checkMobile = () => {
-      if (window.matchMedia('(max-width: 640px)').matches) {
+      if (typeof window !== "undefined" && window.matchMedia('(max-width: 640px)').matches) {
         setAmplitude(1.0);
       } else {
         setAmplitude(2.0);
       }
     };
     checkMobile();
-    window.addEventListener('resize', checkMobile);
+    if (typeof window !== "undefined") {
+      window.addEventListener('resize', checkMobile);
+    }
     // Loader timer
     const timer = setTimeout(() => setFadeOut(true), 2000);
     return () => {
-      window.removeEventListener('resize', checkMobile);
+      if (typeof window !== "undefined") {
+        window.removeEventListener('resize', checkMobile);
+      }
       clearTimeout(timer);
     };
   }, []);

@@ -53,9 +53,13 @@ const Magnet: React.FC<MagnetProps> = ({
       }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    if (typeof window !== "undefined") {
+      window.addEventListener("mousemove", handleMouseMove);
+    }
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("mousemove", handleMouseMove);
+      }
     };
   }, [padding, disabled, magnetStrength]);
 
