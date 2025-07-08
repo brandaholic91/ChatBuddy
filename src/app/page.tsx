@@ -12,7 +12,11 @@ import CTA from "./components/CTA";
 import Loader from "./components/Loader";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { BubbleChat } from 'flowise-embed-react';
+import dynamic from "next/dynamic";
+const BubbleChat = dynamic(
+  () => import("flowise-embed-react").then(mod => mod.BubbleChat),
+  { ssr: false }
+);
 import ScrollTooltip from "./components/ScrollTooltip";
 
 export default function Home() {
