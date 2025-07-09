@@ -92,7 +92,7 @@ export default function Home() {
       </div>
       {isClient && (
         <BubbleChat
-          chatflowid="78519a52-afd9-4713-9925-7f1d482d5ed0"
+          chatflowid="b0f33241-7ffb-4362-a329-666a6193e63b"
           apiHost="https://flowise-1-jwwt.onrender.com"
           chatflowConfig={{}}
           observersConfig={{
