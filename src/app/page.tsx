@@ -164,7 +164,7 @@ export default function Home() {
                 backgroundColor: '#f9fafb',
                 textColor: '#303235',
                 sendButtonColor: '#3B81F6',
-                maxChars: 50,
+                maxChars: 300,
                 maxCharsWarningMessage: 'Túl sok karakter. Kérlek adj meg 50 karakternél kevesebbet.',
                 autoFocus: true,
                 sendMessageSound: true,
